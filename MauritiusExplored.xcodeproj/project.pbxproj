@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4297FF9D1AEB624C004DA040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297FF9C1AEB624C004DA040 /* AppDelegate.swift */; };
+		4297FF9F1AEB624C004DA040 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297FF9E1AEB624C004DA040 /* ViewController.swift */; };
+		4297FFA21AEB624C004DA040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4297FFA01AEB624C004DA040 /* Main.storyboard */; };
+		4297FFA41AEB624C004DA040 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4297FFA31AEB624C004DA040 /* Images.xcassets */; };
+		4297FFA71AEB624C004DA040 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297FFA51AEB624C004DA040 /* LaunchScreen.xib */; };
+		4297FFB31AEB624C004DA040 /* MauritiusExploredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297FFB21AEB624C004DA040 /* MauritiusExploredTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4297FFAD1AEB624C004DA040 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4297FF8F1AEB624B004DA040 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4297FF961AEB624B004DA040;
+			remoteInfo = MauritiusExplored;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4297FF971AEB624C004DA040 /* MauritiusExplored.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MauritiusExplored.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4297FF9B1AEB624C004DA040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4297FF9C1AEB624C004DA040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4297FF9E1AEB624C004DA040 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4297FFA11AEB624C004DA040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4297FFA31AEB624C004DA040 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4297FFA61AEB624C004DA040 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4297FFAC1AEB624C004DA040 /* MauritiusExploredTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MauritiusExploredTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4297FFB11AEB624C004DA040 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4297FFB21AEB624C004DA040 /* MauritiusExploredTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MauritiusExploredTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4297FF941AEB624B004DA040 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4297FFA91AEB624C004DA040 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4297FF8E1AEB624B004DA040 = {
+			isa = PBXGroup;
+			children = (
+				4297FF991AEB624C004DA040 /* MauritiusExplored */,
+				4297FFAF1AEB624C004DA040 /* MauritiusExploredTests */,
+				4297FF981AEB624C004DA040 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4297FF981AEB624C004DA040 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4297FF971AEB624C004DA040 /* MauritiusExplored.app */,
+				4297FFAC1AEB624C004DA040 /* MauritiusExploredTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4297FF991AEB624C004DA040 /* MauritiusExplored */ = {
+			isa = PBXGroup;
+			children = (
+				4297FF9C1AEB624C004DA040 /* AppDelegate.swift */,
+				4297FF9E1AEB624C004DA040 /* ViewController.swift */,
+				4297FFA01AEB624C004DA040 /* Main.storyboard */,
+				4297FFA31AEB624C004DA040 /* Images.xcassets */,
+				4297FFA51AEB624C004DA040 /* LaunchScreen.xib */,
+				4297FF9A1AEB624C004DA040 /* Supporting Files */,
+			);
+			path = MauritiusExplored;
+			sourceTree = "<group>";
+		};
+		4297FF9A1AEB624C004DA040 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4297FF9B1AEB624C004DA040 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4297FFAF1AEB624C004DA040 /* MauritiusExploredTests */ = {
+			isa = PBXGroup;
+			children = (
+				4297FFB21AEB624C004DA040 /* MauritiusExploredTests.swift */,
+				4297FFB01AEB624C004DA040 /* Supporting Files */,
+			);
+			path = MauritiusExploredTests;
+			sourceTree = "<group>";
+		};
+		4297FFB01AEB624C004DA040 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4297FFB11AEB624C004DA040 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4297FF961AEB624B004DA040 /* MauritiusExplored */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4297FFB61AEB624C004DA040 /* Build configuration list for PBXNativeTarget "MauritiusExplored" */;
+			buildPhases = (
+				4297FF931AEB624B004DA040 /* Sources */,
+				4297FF941AEB624B004DA040 /* Frameworks */,
+				4297FF951AEB624B004DA040 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MauritiusExplored;
+			productName = MauritiusExplored;
+			productReference = 4297FF971AEB624C004DA040 /* MauritiusExplored.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4297FFAB1AEB624C004DA040 /* MauritiusExploredTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4297FFB91AEB624C004DA040 /* Build configuration list for PBXNativeTarget "MauritiusExploredTests" */;
+			buildPhases = (
+				4297FFA81AEB624C004DA040 /* Sources */,
+				4297FFA91AEB624C004DA040 /* Frameworks */,
+				4297FFAA1AEB624C004DA040 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4297FFAE1AEB624C004DA040 /* PBXTargetDependency */,
+			);
+			name = MauritiusExploredTests;
+			productName = MauritiusExploredTests;
+			productReference = 4297FFAC1AEB624C004DA040 /* MauritiusExploredTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4297FF8F1AEB624B004DA040 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Adavers;
+				TargetAttributes = {
+					4297FF961AEB624B004DA040 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					4297FFAB1AEB624C004DA040 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 4297FF961AEB624B004DA040;
+					};
+				};
+			};
+			buildConfigurationList = 4297FF921AEB624B004DA040 /* Build configuration list for PBXProject "MauritiusExplored" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4297FF8E1AEB624B004DA040;
+			productRefGroup = 4297FF981AEB624C004DA040 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4297FF961AEB624B004DA040 /* MauritiusExplored */,
+				4297FFAB1AEB624C004DA040 /* MauritiusExploredTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4297FF951AEB624B004DA040 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4297FFA21AEB624C004DA040 /* Main.storyboard in Resources */,
+				4297FFA71AEB624C004DA040 /* LaunchScreen.xib in Resources */,
+				4297FFA41AEB624C004DA040 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4297FFAA1AEB624C004DA040 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4297FF931AEB624B004DA040 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4297FF9F1AEB624C004DA040 /* ViewController.swift in Sources */,
+				4297FF9D1AEB624C004DA040 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4297FFA81AEB624C004DA040 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4297FFB31AEB624C004DA040 /* MauritiusExploredTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4297FFAE1AEB624C004DA040 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4297FF961AEB624B004DA040 /* MauritiusExplored */;
+			targetProxy = 4297FFAD1AEB624C004DA040 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4297FFA01AEB624C004DA040 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4297FFA11AEB624C004DA040 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4297FFA51AEB624C004DA040 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4297FFA61AEB624C004DA040 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4297FFB41AEB624C004DA040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4297FFB51AEB624C004DA040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4297FFB71AEB624C004DA040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MauritiusExplored/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4297FFB81AEB624C004DA040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MauritiusExplored/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4297FFBA1AEB624C004DA040 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MauritiusExploredTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MauritiusExplored.app/MauritiusExplored";
+			};
+			name = Debug;
+		};
+		4297FFBB1AEB624C004DA040 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MauritiusExploredTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MauritiusExplored.app/MauritiusExplored";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4297FF921AEB624B004DA040 /* Build configuration list for PBXProject "MauritiusExplored" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4297FFB41AEB624C004DA040 /* Debug */,
+				4297FFB51AEB624C004DA040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4297FFB61AEB624C004DA040 /* Build configuration list for PBXNativeTarget "MauritiusExplored" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4297FFB71AEB624C004DA040 /* Debug */,
+				4297FFB81AEB624C004DA040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4297FFB91AEB624C004DA040 /* Build configuration list for PBXNativeTarget "MauritiusExploredTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4297FFBA1AEB624C004DA040 /* Debug */,
+				4297FFBB1AEB624C004DA040 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4297FF8F1AEB624B004DA040 /* Project object */;
+}
