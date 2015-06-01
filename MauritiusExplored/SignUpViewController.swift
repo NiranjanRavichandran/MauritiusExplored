@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(email.text, forKey: "UserMail")
+            
             
             var user = PFUser()
             user.username = email.text
@@ -68,13 +68,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
             user.signUpInBackgroundWithBlock({ (success: Bool, signUpError: NSError?) -> Void in
                 if (success == true) {
+                    
                     println("Sign up Success!")
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                self.performSegueWithIdentifier("toNextView", sender: self)
+                    defaults.setObject(self.email.text, forKey: "UserMail")
+                    self.performSegueWithIdentifier("toNextView", sender: self)
+                    
                 }else{
-                    println(signUpError)
+                    if signUpError?.code == 202{
+                        
+                        var signUpAlert = UIAlertController(title: "Email already exists!", message: "Please use a different email or continue with the same email", preferredStyle: .Alert)
+                        signUpAlert.addAction(UIAlertAction(title: "Continue", style: .Default, handler: { action in
+                            
+                            println("Lets begin!")
+                            defaults.setObject(self.email.text, forKey: "UserMail")
+                            self.performSegueWithIdentifier("toNextView", sender: self)
+                        }))
+                        signUpAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                        self.presentViewController(signUpAlert, animated: true, completion: nil)
+                    }
                 }
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
             })
         }
         

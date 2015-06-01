@@ -14,6 +14,7 @@ class MenuViewController: StaticDataTableViewController {
     @IBOutlet var beachMenu: [UITableViewCell]!
     var cellsHidden = true
     let defaults = NSUserDefaults.standardUserDefaults()
+    var previousSelectedCell = UITableViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,28 +121,41 @@ class MenuViewController: StaticDataTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+
+        previousSelectedCell.userInteractionEnabled = true
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
-       // selectedCell?.backgroundColor = UIColor.grayColor()
         
         if selectedCell?.tag == 11{
+           
             println("East")
             defaults.setObject("East", forKey: "CurrentDirection")
             performSegueWithIdentifier("East", sender: self)
+            selectedCell?.userInteractionEnabled = false
+            
         }else if selectedCell?.tag == 12{
+            
             println("West")
             defaults.setObject("West", forKey: "CurrentDirection")
-            performSegueWithIdentifier("West", sender: self)
+            //performSegueWithIdentifier("West", sender: self)
+            selectedCell?.userInteractionEnabled = false
+            
         }else if selectedCell?.tag == 13{
+           
             println("North")
             defaults.setObject("North", forKey: "CurrentDirection")
            performSegueWithIdentifier("North", sender: self)
+            selectedCell?.userInteractionEnabled = false
+            
         }else if selectedCell?.tag == 14{
+            
             println("South")
             defaults.setObject("South", forKey: "CurrentDirection")
             performSegueWithIdentifier("South", sender: self)
+            selectedCell?.userInteractionEnabled = false
+
         }
         
-        if indexPath.row == 1{
+        if selectedCell?.tag == 4{
             
             
             if cellsHidden{
@@ -158,8 +172,9 @@ class MenuViewController: StaticDataTableViewController {
                 
             }
         }
- 
+        previousSelectedCell = selectedCell!
     }
+    
     
 //    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 //        

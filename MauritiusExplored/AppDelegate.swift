@@ -31,36 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         loadCategories()
-        if defaults.objectForKey("UserMail")  == nil {
-
-            println("First Launch")
-            creatingIntialView("SignUpView")
-            
-        }else{
-            
-            let email = defaults.objectForKey("UserMail") as! String
-            if email == "" {
-                
-                println("Not First Launch")
-                creatingIntialView("SignUpView")
-                
-            }else{
-                
-                println("Not first Launch")
-                creatingIntialView("MenuView")
-                
-                let getFavQuery = PFQuery(className: "Favourites")
-                getFavQuery.whereKey("UserId", equalTo: email)
-                getFavQuery.getFirstObjectInBackgroundWithBlock({ (favObject, error) -> Void in
-                    
-                    if error == nil{
-                       
-                        let favs = favObject?.valueForKey("ImageId") as! [String]
-                        self.defaults.setObject(favs, forKey: "Favourites")
-                    }
-                })
-            }
-        }
+        
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         
@@ -125,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.defaults.setObject(beachsDict, forKey: "BeachNames")
                 self.defaults.setObject(lThreeDict, forKey: "DirectionsDict")
                 
+                self.launchingIntialView()
             }else{
                 
                 println("Category Error:\(error)")
@@ -133,6 +105,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
+    func launchingIntialView(){
+        
+        if defaults.objectForKey("UserMail")  == nil {
+            
+            println("First Launch")
+            creatingIntialView("SignUpView")
+            
+        }else{
+            
+            let email = defaults.objectForKey("UserMail") as! String
+            if email == "" {
+                
+                println("Not First Launch")
+                creatingIntialView("SignUpView")
+                
+            }else{
+                
+                println("Not first Launch")
+                creatingIntialView("MenuView")
+                
+                let getFavQuery = PFQuery(className: "Favourites")
+                getFavQuery.whereKey("UserId", equalTo: email)
+                getFavQuery.getFirstObjectInBackgroundWithBlock({ (favObject, error) -> Void in
+                    
+                    if error == nil{
+                        
+                        let favs = favObject?.valueForKey("ImageId") as! [String]
+                        self.defaults.setObject(favs, forKey: "Favourites")
+                    }
+                })
+            }
+        }
+
+    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
