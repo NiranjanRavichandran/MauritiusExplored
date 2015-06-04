@@ -135,14 +135,15 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
             
             println("Opening Google maps")
             
-            UIApplication.sharedApplication().openURL(NSURL(string:"comgooglemaps-x-callback://?saddr=&daddr=Chennai&directionsmode=driving")!)
+            UIApplication.sharedApplication().openURL(NSURL(string:"comgooglemaps://?saddr=&daddr=11.01684,76.95583&directionsmode=driving")!)
             
         }else{
+        
+            println("Opening Apple maps")
+
+            UIApplication.sharedApplication().openURL(NSURL(string:"http://maps.apple.com/?daddr=-20.059175,57.687301&saddr=")!)
             
-            println("Opening maps in Safari")
-            
-            UIApplication.sharedApplication().openURL(NSURL(string:"https://maps.google.com/maps?saddr=&daddr=Chennai&directionsmode=driving")!)
-        }
+       }
     }
     
     

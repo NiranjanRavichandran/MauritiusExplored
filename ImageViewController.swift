@@ -188,5 +188,15 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         }
         
     }
+    
+    override func shouldAutorotate() -> Bool {
+        
+        return true
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        
+        return Int(UIInterfaceOrientationMask.All.rawValue)
+    }
 
 }

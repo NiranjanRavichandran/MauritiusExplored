@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
     var blurredView: UIVisualEffectView = UIVisualEffectView()
+    let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,8 +82,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                             
                             println("Lets begin!")
                             defaults.setObject(self.email.text, forKey: "UserMail")
+
+                            // Loading favourites for existing email
+                            let getFavQuery = PFQuery(className: "Favourites")
+                            getFavQuery.whereKey("UserId", equalTo: self.email.text)
+                            getFavQuery.getFirstObjectInBackgroundWithBlock({ (favObject, error) -> Void in
+                                
+                                if error == nil{
+                                    
+                                    let favs = favObject?.valueForKey("ImageId") as! [String]
+                                    self.defaults.setObject(favs, forKey: "Favourites")
+                                }
+                            })
+                            
                             self.performSegueWithIdentifier("toNextView", sender: self)
                         }))
+                        
                         signUpAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
                         self.presentViewController(signUpAlert, animated: true, completion: nil)
                     }

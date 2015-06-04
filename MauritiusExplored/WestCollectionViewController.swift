@@ -17,7 +17,7 @@ var sectionItemsCount = 0
 class WestCollectionViewController: UICollectionViewController {
     
     @IBOutlet var menuButton: UIBarButtonItem!
-    var currentBeachDirection: String = "East"
+    var currentBeachDirection: String?
     let beachNames = defaults.objectForKey("BeachNames") as! [String: [String]]
     let beachIdsDict = defaults.objectForKey("BeachIds") as! [String: String]
     let directionsDict = defaults.objectForKey("DirectionsDict") as! [String: String]
@@ -32,29 +32,51 @@ class WestCollectionViewController: UICollectionViewController {
         
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
+       // self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "bg2.jpg"))
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        var loader = ActivityIndicator()
+        loader.startIndicator()
+        view.addSubview(loader.activityIndicator!)
+
         // Do any additional setup after loading the view.
         if let direction = defaults.objectForKey("CurrentDirection") as? String{
             
             currentBeachDirection = direction
             
+        }else{
+            currentBeachDirection = "East"
         }
         
-        println("Loading West Objects")
-        loadingObjects()
+        println("Loading \(currentBeachDirection) Objects")
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            PFUser.logInWithUsernameInBackground(defaults.objectForKey("UserMail") as! String, password: "password") { (userObject, error) -> Void in
+                
+                if error == nil{
+                    
+                    println("Logged In")
+                    self.loadingObjects()
+                    loader.stopIndicator()
+                }else{
+                    println("Login failed!")
+                }
+            }
+        })
+        
     }
     
     func loadingObjects(){
         
-        westBeaches = beachNames[currentBeachDirection]!
+        westBeaches = beachNames[currentBeachDirection!]!
         
         var imagesQuery = PFQuery(className: "Beach")
-        imagesQuery.whereKey("SuperParentId", equalTo: directionsDict[currentBeachDirection]!)
+        imagesQuery.whereKey("SuperParentId", equalTo: directionsDict[currentBeachDirection!]!)
         imagesQuery.findObjectsInBackgroundWithBlock { (imageObjects, error) -> Void in
             
             if error == nil{
@@ -62,14 +84,14 @@ class WestCollectionViewController: UICollectionViewController {
                 for item in imageObjects!{
                     
                     if sortedImagesDict[item.objectForKey("LinkId") as! String] == nil{
-                        println("Adding new array")
+                        //println("Adding new array")
                         let photoObject = PhotoDetails(imageObjects: item)
                         var photoDtlsArray: [PhotoDetails] = [photoObject]
                         sortedImagesDict[item.objectForKey("LinkId") as! String] = photoDtlsArray
                         
                     }else{
                         
-                        println("appending data")
+                       // println("appending data")
                         var photoDtlsArray: [PhotoDetails] = sortedImagesDict[item.objectForKey("LinkId") as! String]!
                         let photoObject = PhotoDetails(imageObjects: item)
                         photoDtlsArray.append(photoObject)
@@ -79,7 +101,7 @@ class WestCollectionViewController: UICollectionViewController {
                 }
                 
                 self.loadThumbnails()
-                println(sortedImagesDict)
+             //   println(sortedImagesDict)
                 self.collectionView?.reloadData()
                 
             }else{
@@ -118,10 +140,8 @@ class WestCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        println("Section number **** \(section)")
         var beach = westBeaches[section]
         var items = sortedImagesDict[beachIdsDict[beach]!]
-        println("items in this section: \(items!.count)")
         return items!.count
     }
     
@@ -152,7 +172,12 @@ class WestCollectionViewController: UICollectionViewController {
         case UICollectionElementKindSectionHeader:
             
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
+            var headerString = westBeaches[indexPath.section] as NSString
+            var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName:headerView.headerText.font])
+            headerView.frame.size.width = newSize.width + 20
+            headerView.layer.cornerRadius = 15
             headerView.headerText.text = westBeaches[indexPath.section]
+            headerView.center.x = collectionView.center.x
             return headerView
             
         default:
@@ -165,8 +190,18 @@ class WestCollectionViewController: UICollectionViewController {
     
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+            
+//            var screenWidth = CGRectGetWidth(collectionView.bounds)
+//            var cellWidth = screenWidth / 3
+            
+            return CGSize(width: 75,height: 75)
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-            return 1
+            return 5
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -174,6 +209,7 @@ class WestCollectionViewController: UICollectionViewController {
         minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
             return 1
     }
+    
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
@@ -188,6 +224,27 @@ class WestCollectionViewController: UICollectionViewController {
         imageVC.imageDetails = imageDetailsArray[cellIndexPath.row]
         
     }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+            return (UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
+    }
+    
+//    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+//        
+//        if fromInterfaceOrientation.rawValue == UIInterfaceOrientation.Portrait.rawValue{
+//            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
+//                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "lanscape.jpg"))
+//            })
+//        }else{
+//            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
+//                
+//                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
+//                
+//            })
+//        }
+//    }
     // MARK: UICollectionViewDelegate
     
     /*

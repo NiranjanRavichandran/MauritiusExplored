@@ -12,4 +12,6 @@ class CollectionViewHeader: UICollectionReusableView {
     
     
     @IBOutlet var headerText: UILabel!
+    
+    
 }

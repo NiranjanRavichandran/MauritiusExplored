@@ -786,6 +786,49 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="fC4-qa-Tag">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="a5i-JG-qNf">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a5i-JG-qNf" id="Xyy-r8-aC3">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favourites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RnB-Bp-9rR">
+                                                    <rect key="frame" x="55" y="9" width="92" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="favourites" translatesAutoresizingMaskIntoConstraints="NO" id="0nq-az-VSy">
+                                                    <rect key="frame" x="21" y="10" width="22" height="22"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="Guc-dV-6PY">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Guc-dV-6PY" id="PZ4-X7-ry0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tA6-Li-xRz">
+                                                    <rect key="frame" x="55" y="8" width="73" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="P1w-a9-8WE">
+                                                    <rect key="frame" x="21" y="9" width="22" height="22"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="j3x-He-PR3" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2FD-WZ-qb5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="6c4-u4-tZX" id="6W8-XS-p0w"/>
@@ -804,17 +847,17 @@
             </objects>
             <point key="canvasLocation" x="830" y="1060"/>
         </scene>
-        <!--West Collection View Controller-->
+        <!--Beaches-->
         <scene sceneID="7yA-gH-jdx">
             <objects>
                 <collectionViewController id="m1D-vD-JT3" customClass="WestCollectionViewController" customModule="MauritiusExplored" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Rwe-Ak-xWa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.17629419190000001" green="0.17629419190000001" blue="0.17629419190000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WIz-5b-geY">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="30.5"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
@@ -827,6 +870,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.23361823964783282" blue="0.17773477812177502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="JrN-He-Juv" kind="presentation" identifier="LargeImageView" id="ZCD-wM-HKF"/>
                                 </connections>
@@ -836,13 +880,21 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-5i-IgG">
-                                    <rect key="frame" x="139" y="14" width="42" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-5i-IgG">
+                                    <rect key="frame" x="143" y="7.5" width="34.5" height="16.5"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Label">
+                                            <attributes>
+                                                <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
                             </subviews>
+                            <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="wCP-5i-IgG" secondAttribute="centerX" id="DmU-bK-N0O"/>
                                 <constraint firstAttribute="centerY" secondItem="wCP-5i-IgG" secondAttribute="centerY" id="UtL-j7-Vlk"/>
@@ -856,9 +908,9 @@
                             <outlet property="delegate" destination="m1D-vD-JT3" id="wgG-br-7Po"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="2vM-7U-iGY">
+                    <navigationItem key="navigationItem" title="Beaches" id="2vM-7U-iGY">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="tbk-WH-wSt">
-                            <color key="tintColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -869,7 +921,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MM4-n0-2FU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1709" y="406"/>
+            <point key="canvasLocation" x="2144" y="407"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="Hv4-2C-YWY">
@@ -983,7 +1035,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1M-TX-6oZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="406"/>
+            <point key="canvasLocation" x="2585" y="407"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5aR-YH-yss">
@@ -1088,13 +1140,13 @@
                                     <action selector="chooseImage:" destination="IuX-kg-9Nj" eventType="touchUpInside" id="StC-iZ-SPz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkc-pI-BKz">
-                                <rect key="frame" x="145" y="456" width="30" height="30"/>
-                                <state key="normal" title="Test">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkr-UF-Bfy">
+                                <rect key="frame" x="137" y="473" width="51" height="30"/>
+                                <state key="normal" title="Launch">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testFunction:" destination="IuX-kg-9Nj" eventType="touchUpInside" id="zhS-aZ-gDo"/>
+                                    <action selector="launchMaps:" destination="IuX-kg-9Nj" eventType="touchUpInside" id="teL-bt-9Uz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1291,6 +1343,30 @@
             </objects>
             <point key="canvasLocation" x="1300" y="1772"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="eYF-h1-RIc">
+            <objects>
+                <viewController id="Upx-3p-Q1W" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tNl-CZ-ct6"/>
+                        <viewControllerLayoutGuide type="bottom" id="12y-V8-r19"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k5b-SE-kdu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LXG-RQ-ujX">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="f0M-1a-oJZ">
+                            <color key="tintColor" red="0.71764705880000002" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4YP-7A-vw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="336"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="tpH-rQ-NZy">
             <objects>
@@ -1308,7 +1384,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GgZ-0J-ZPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="406"/>
+            <point key="canvasLocation" x="1712" y="407"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0G9-5S-0gt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j3x-He-PR3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GhS-UJ-Ply">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Upx-3p-Q1W" kind="relationship" relationship="rootViewController" id="1C1-6a-S14"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ug2-2I-isT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="336"/>
         </scene>
     </scenes>
     <resources>
@@ -1323,6 +1418,7 @@
         <image name="deepsea" width="100" height="100"/>
         <image name="diving" width="100" height="100"/>
         <image name="dolphin" width="100" height="100"/>
+        <image name="favourites" width="100" height="100"/>
         <image name="in-air" width="100" height="100"/>
         <image name="kite-surf" width="100" height="100"/>
         <image name="menu" width="22" height="22"/>
@@ -1333,6 +1429,7 @@
         <image name="places-of-interest" width="100" height="100"/>
         <image name="port-louis" width="100" height="100"/>
         <image name="restaurant" width="100" height="100"/>
+        <image name="settings" width="100" height="100"/>
         <image name="shell-fish" width="100" height="100"/>
         <image name="taxi" width="100" height="100"/>
         <image name="tour-guide" width="100" height="100"/>
