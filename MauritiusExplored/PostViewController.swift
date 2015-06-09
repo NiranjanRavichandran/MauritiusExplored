@@ -57,6 +57,9 @@ class PostViewController: UIViewController, UINavigationControllerDelegate, UIIm
 //        }
         println(thumbnails.count)
         
+        if self.revealViewController() != nil{
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     

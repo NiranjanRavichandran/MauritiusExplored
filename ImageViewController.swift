@@ -23,8 +23,8 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     var imageDetails: PhotoDetails?
     let tap = UITapGestureRecognizer()
     var elementsHidden: Bool?
-    var favourites: [String]?
-    var isFavourite: Bool?
+    var favourites = [String]()
+    var isFavourite: Bool = false
     var favExists: Bool = false
     
     override func viewDidLoad() {
@@ -55,12 +55,11 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     func loadIntialObjects(){
       
         imageDescription.text = imageDetails?.imageDesc
-        
         if let favs = defaults.objectForKey("Favourites") as? [String]{
             
             favourites = favs
             favExists = true
-            if contains(favourites!, self.imageDetails!.imageId){
+            if contains(favourites, self.imageDetails!.imageId){
                 println("Image Already Liked")
                 favButton.setTitle("Liked", forState: .Normal)
                 isFavourite = true
@@ -71,6 +70,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
                 println(self.imageDetails!.imageId)
                 isFavourite = false
             }
+            
         }
         
         imageDetails?.largeImage.getDataInBackgroundWithBlock({ (imageData, dataError) -> Void in
@@ -103,16 +103,16 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func addFavourites(sender: AnyObject) {
         
-        if isFavourite!{
+        if isFavourite{
             
             favButton.setTitle("Like", forState: .Normal)
-            let newFav = favourites?.filter({$0 != self.imageDetails!.imageId})
+            let newFav = favourites.filter({$0 != self.imageDetails!.imageId})
             favourites = newFav
             println("Favs after removing: \(favourites)")
         }else{
             
             favButton.setTitle("Liked", forState: .Normal)
-            favourites?.append(self.imageDetails!.imageId)
+            favourites.append(self.imageDetails!.imageId)
             println("Favs after appending: \(favourites)")
         }
         

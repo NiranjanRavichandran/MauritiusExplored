@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Navigation bar styles
         UINavigationBar.appearance().barTintColor = UIColor(red:226/255, green: 60/255, blue: 45/255, alpha: 1.0)
         //UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navBar.jpg"), forBarMetrics: .Default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navBar2.jpg"), forBarMetrics: .Default)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().translucent = true
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)

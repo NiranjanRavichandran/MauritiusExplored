@@ -20,6 +20,8 @@ class PortLouisViewController: UIViewController {
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +29,10 @@ class PortLouisViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func shouldAutorotate() -> Bool {
+        
+        return false
+    }
 
     /*
     // MARK: - Navigation

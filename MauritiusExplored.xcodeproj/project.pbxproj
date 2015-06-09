@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4203A5731B21971F00293344 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4203A5721B21971F00293344 /* SettingsViewController.swift */; };
 		4205B19A1AF640C6007B60CC /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205B1991AF640C6007B60CC /* PhotoViewCell.swift */; };
 		420D6D011AEFA4CF00E77720 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D001AEFA4CF00E77720 /* SWRevealViewController.m */; };
 		420D6D0A1AF0C0C700E77720 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D091AF0C0C700E77720 /* CollectionViewController.swift */; };
@@ -41,6 +42,8 @@
 		42CF12341B0E53A3000E99D8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CF12331B0E53A3000E99D8 /* TextField.swift */; };
 		42E970811B16E05C00C7EA54 /* ImageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E970801B16E05C00C7EA54 /* ImageDetails.swift */; };
 		42E970851B18CD9600C7EA54 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E970841B18CD9600C7EA54 /* ImageViewController.swift */; };
+		42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */; };
+		42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1531B26DC6B0098500C /* NavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4203A5721B21971F00293344 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4205B1991AF640C6007B60CC /* PhotoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewCell.swift; path = ../PhotoViewCell.swift; sourceTree = "<group>"; };
 		420D6CFE1AEFA4C500E77720 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
 		420D6CFF1AEFA4CE00E77720 /* MauritiusExplored-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MauritiusExplored-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -95,6 +99,10 @@
 		42CF12331B0E53A3000E99D8 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		42E970801B16E05C00C7EA54 /* ImageDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDetails.swift; path = ../ImageDetails.swift; sourceTree = "<group>"; };
 		42E970841B18CD9600C7EA54 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ../ImageViewController.swift; sourceTree = "<group>"; };
+		42F4A14D1B26D9590098500C /* UINavigationController+rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+rotation.h"; path = "MauritiusExplored/UINavigationController+rotation.h"; sourceTree = "<group>"; };
+		42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+rotation.m"; path = "MauritiusExplored/UINavigationController+rotation.m"; sourceTree = "<group>"; };
+		42F4A1521B26DC6B0098500C /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationViewController.h; path = MauritiusExplored/NavigationViewController.h; sourceTree = "<group>"; };
+		42F4A1531B26DC6B0098500C /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationViewController.m; path = MauritiusExplored/NavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,10 @@
 		4297FF8E1AEB624B004DA040 = {
 			isa = PBXGroup;
 			children = (
+				42F4A1521B26DC6B0098500C /* NavigationViewController.h */,
+				42F4A1531B26DC6B0098500C /* NavigationViewController.m */,
+				42F4A14D1B26D9590098500C /* UINavigationController+rotation.h */,
+				42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */,
 				420D6D021AEFA4DA00E77720 /* SlideViewControllers */,
 				4297FFBE1AEB62A9004DA040 /* Frameworks */,
 				4297FF991AEB624C004DA040 /* MauritiusExplored */,
@@ -172,6 +184,7 @@
 				42E970841B18CD9600C7EA54 /* ImageViewController.swift */,
 				42A366D31B133AF300AD47DC /* CollectionViewHeader.swift */,
 				4297FFA01AEB624C004DA040 /* Main.storyboard */,
+				4203A5721B21971F00293344 /* SettingsViewController.swift */,
 				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
 				4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */,
 				4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */,
@@ -344,11 +357,14 @@
 				420D6D0C1AF0F63000E77720 /* PostViewController.swift in Sources */,
 				4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */,
 				4205B19A1AF640C6007B60CC /* PhotoViewCell.swift in Sources */,
+				42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */,
 				42A366D01B120BE900AD47DC /* StaticDataTableViewController.m in Sources */,
 				4297ABE11AEBC0D20036C2F6 /* SignUpViewController.swift in Sources */,
 				4297FF9F1AEB624C004DA040 /* ViewController.swift in Sources */,
 				4297FF9D1AEB624C004DA040 /* AppDelegate.swift in Sources */,
 				420D6D011AEFA4CF00E77720 /* SWRevealViewController.m in Sources */,
+				42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */,
+				4203A5731B21971F00293344 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

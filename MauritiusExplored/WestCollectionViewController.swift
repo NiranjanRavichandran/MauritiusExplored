@@ -32,7 +32,9 @@ class WestCollectionViewController: UICollectionViewController {
         
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-       // self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "bg2.jpg"))
+        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
+        
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -178,6 +180,7 @@ class WestCollectionViewController: UICollectionViewController {
             headerView.layer.cornerRadius = 15
             headerView.headerText.text = westBeaches[indexPath.section]
             headerView.center.x = collectionView.center.x
+            headerView.alpha = 0.7
             return headerView
             
         default:
@@ -186,6 +189,21 @@ class WestCollectionViewController: UICollectionViewController {
             
         }
         
+    }
+    
+     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        
+        collectionView!.performBatchUpdates({ () -> Void in
+            
+        self.view.layoutIfNeeded()
+            }, completion: { (complete) -> Void in
+                
+        })
+    
+    }
+
+    override func shouldAutorotate() -> Bool {
+        return false
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -228,8 +246,10 @@ class WestCollectionViewController: UICollectionViewController {
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-            return (UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
+            
+            return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
     }
+    
     
 //    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
 //        
