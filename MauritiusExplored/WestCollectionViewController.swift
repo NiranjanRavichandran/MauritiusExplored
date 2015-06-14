@@ -9,17 +9,17 @@
 import UIKit
 import Parse
 
-let reuseIdentifier = "Cell"
 let defaults = NSUserDefaults.standardUserDefaults()
 var sortedImagesDict = [String: [PhotoDetails]]()
 var sectionItemsCount = 0
 
 class WestCollectionViewController: UICollectionViewController {
     
+    let reuseIdentifier = "Cell"
     @IBOutlet var menuButton: UIBarButtonItem!
     var currentBeachDirection: String?
     let beachNames = defaults.objectForKey("BeachNames") as! [String: [String]]
-    let beachIdsDict = defaults.objectForKey("BeachIds") as! [String: String]
+    let beachIdsDict: [String: String] = defaults.objectForKey("BeachIds") as! [String: String]
     let directionsDict = defaults.objectForKey("DirectionsDict") as! [String: String]
     var cellIndexPath = NSIndexPath()
     var westBeaches = [String]()
@@ -33,13 +33,17 @@ class WestCollectionViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
+       // self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "Bg5.jpg"))
+        
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
         
         var loader = ActivityIndicator()
         loader.startIndicator()
@@ -74,11 +78,12 @@ class WestCollectionViewController: UICollectionViewController {
     }
     
     func loadingObjects(){
-        
+
         westBeaches = beachNames[currentBeachDirection!]!
         
         var imagesQuery = PFQuery(className: "Beach")
         imagesQuery.whereKey("SuperParentId", equalTo: directionsDict[currentBeachDirection!]!)
+        imagesQuery.limit = 500
         imagesQuery.findObjectsInBackgroundWithBlock { (imageObjects, error) -> Void in
             
             if error == nil{
@@ -92,7 +97,6 @@ class WestCollectionViewController: UICollectionViewController {
                         sortedImagesDict[item.objectForKey("LinkId") as! String] = photoDtlsArray
                         
                     }else{
-                        
                        // println("appending data")
                         var photoDtlsArray: [PhotoDetails] = sortedImagesDict[item.objectForKey("LinkId") as! String]!
                         let photoObject = PhotoDetails(imageObjects: item)
@@ -102,8 +106,7 @@ class WestCollectionViewController: UICollectionViewController {
                     
                 }
                 
-                self.loadThumbnails()
-             //   println(sortedImagesDict)
+                //println(sortedImagesDict)
                 self.collectionView?.reloadData()
                 
             }else{
@@ -112,25 +115,12 @@ class WestCollectionViewController: UICollectionViewController {
             }
         }
     }
-    
-    func loadThumbnails(){
-        
-        
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: UICollectionViewDataSource
     
@@ -150,6 +140,7 @@ class WestCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoViewCell
         cell.backgroundColor = UIColor.darkGrayColor()
+        cell.layer.cornerRadius = 15
         // Configure the cell
         if sortedImagesDict.count > 0 {
             let imageDetailsArray: [PhotoDetails] = sortedImagesDict[beachIdsDict[westBeaches[indexPath.section]]!]!
@@ -158,6 +149,7 @@ class WestCollectionViewController: UICollectionViewController {
                 
                 if dataError ==  nil{
                     cell.cellImageView.image = UIImage(data: imageData!)
+                    cell.cellImageView.layer.cornerRadius = 15
                 }else{
                     
                     println("Error fetching thumbnail: \(dataError)")
@@ -191,16 +183,6 @@ class WestCollectionViewController: UICollectionViewController {
         
     }
     
-     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        
-        collectionView!.performBatchUpdates({ () -> Void in
-            
-        self.view.layoutIfNeeded()
-            }, completion: { (complete) -> Void in
-                
-        })
-    
-    }
 
     override func shouldAutorotate() -> Bool {
         return false
@@ -247,24 +229,25 @@ class WestCollectionViewController: UICollectionViewController {
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
             
-            return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
-    
-//    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-//        
-//        if fromInterfaceOrientation.rawValue == UIInterfaceOrientation.Portrait.rawValue{
-//            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
-//                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "lanscape.jpg"))
-//            })
-//        }else{
-//            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
-//                
-//                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
-//                
-//            })
-//        }
-//    }
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        
+        if toInterfaceOrientation.rawValue == UIInterfaceOrientation.LandscapeRight.rawValue{
+                        UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "lanscape.jpg"))
+                        })
+                    }else{
+                        UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
+            
+                            self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
+                            
+                        })
+                    }
+
+    }
+
     // MARK: UICollectionViewDelegate
     
     /*

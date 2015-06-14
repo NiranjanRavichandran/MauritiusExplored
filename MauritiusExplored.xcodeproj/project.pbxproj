@@ -13,7 +13,6 @@
 		420D6D0A1AF0C0C700E77720 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D091AF0C0C700E77720 /* CollectionViewController.swift */; };
 		420D6D0C1AF0F63000E77720 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D0B1AF0F63000E77720 /* PostViewController.swift */; };
 		4220FDD21B16456F00956EAD /* WestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */; };
-		4222AB431AF77FE800D5EA00 /* PortLouisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB421AF77FE800D5EA00 /* PortLouisViewController.swift */; };
 		4222AB7F1AF7B50000D5EA00 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */; };
 		4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */; };
 		4297ABC71AEB80DD0036C2F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */; };
@@ -44,6 +43,8 @@
 		42E970851B18CD9600C7EA54 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E970841B18CD9600C7EA54 /* ImageViewController.swift */; };
 		42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */; };
 		42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1531B26DC6B0098500C /* NavigationViewController.m */; };
+		42F4A1561B288E170098500C /* PortLouisCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */; };
+		42F4A1581B29516C0098500C /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1571B29516C0098500C /* CategoryDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +66,6 @@
 		420D6D091AF0C0C700E77720 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		420D6D0B1AF0F63000E77720 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WestCollectionViewController.swift; sourceTree = "<group>"; };
-		4222AB421AF77FE800D5EA00 /* PortLouisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortLouisViewController.swift; sourceTree = "<group>"; };
 		4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
 		4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -103,6 +103,8 @@
 		42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+rotation.m"; path = "MauritiusExplored/UINavigationController+rotation.m"; sourceTree = "<group>"; };
 		42F4A1521B26DC6B0098500C /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationViewController.h; path = MauritiusExplored/NavigationViewController.h; sourceTree = "<group>"; };
 		42F4A1531B26DC6B0098500C /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationViewController.m; path = MauritiusExplored/NavigationViewController.m; sourceTree = "<group>"; };
+		42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortLouisCollectionViewController.swift; sourceTree = "<group>"; };
+		42F4A1571B29516C0098500C /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				4297FF9C1AEB624C004DA040 /* AppDelegate.swift */,
+				42F4A1571B29516C0098500C /* CategoryDetails.swift */,
 				42E970801B16E05C00C7EA54 /* ImageDetails.swift */,
 				42CF12331B0E53A3000E99D8 /* TextField.swift */,
 				42BE0B8C1B09CFFD00BE7342 /* ActivityIndicator.swift */,
@@ -183,12 +186,12 @@
 				4205B1991AF640C6007B60CC /* PhotoViewCell.swift */,
 				42E970841B18CD9600C7EA54 /* ImageViewController.swift */,
 				42A366D31B133AF300AD47DC /* CollectionViewHeader.swift */,
+				42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */,
 				4297FFA01AEB624C004DA040 /* Main.storyboard */,
 				4203A5721B21971F00293344 /* SettingsViewController.swift */,
 				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
 				4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */,
 				4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */,
-				4222AB421AF77FE800D5EA00 /* PortLouisViewController.swift */,
 				420D6D0B1AF0F63000E77720 /* PostViewController.swift */,
 				420D6D091AF0C0C700E77720 /* CollectionViewController.swift */,
 				4297ABE01AEBC0D20036C2F6 /* SignUpViewController.swift */,
@@ -345,15 +348,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4222AB431AF77FE800D5EA00 /* PortLouisViewController.swift in Sources */,
 				42A366D41B133AF300AD47DC /* CollectionViewHeader.swift in Sources */,
 				4222AB7F1AF7B50000D5EA00 /* MenuViewController.swift in Sources */,
+				42F4A1561B288E170098500C /* PortLouisCollectionViewController.swift in Sources */,
 				42E970851B18CD9600C7EA54 /* ImageViewController.swift in Sources */,
 				420D6D0A1AF0C0C700E77720 /* CollectionViewController.swift in Sources */,
 				4220FDD21B16456F00956EAD /* WestCollectionViewController.swift in Sources */,
 				42CF12341B0E53A3000E99D8 /* TextField.swift in Sources */,
 				42E970811B16E05C00C7EA54 /* ImageDetails.swift in Sources */,
 				42BE0B8D1B09CFFD00BE7342 /* ActivityIndicator.swift in Sources */,
+				42F4A1581B29516C0098500C /* CategoryDetails.swift in Sources */,
 				420D6D0C1AF0F63000E77720 /* PostViewController.swift in Sources */,
 				4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */,
 				4205B19A1AF640C6007B60CC /* PhotoViewCell.swift in Sources */,

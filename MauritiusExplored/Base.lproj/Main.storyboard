@@ -419,7 +419,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="Ufn-Bc-HdK" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Dch-0q-ALC"/>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="T0m-b8-o7H"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="biy-Oe-Iec">
@@ -439,6 +439,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="DEK-Xf-wQu"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="ZoW-E5-jqM">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -457,6 +460,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="5Os-Kv-2hP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="Dec-ZP-yOi">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -569,6 +575,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="VsI-CY-j2z"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="Ozk-dK-aWd">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -587,6 +596,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="mQ8-Qm-p6y"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="zm2-3V-l7f">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -605,6 +617,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="xun-HQ-UaG"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="0zU-0b-gxf">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -623,6 +638,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="cpY-ao-S7J"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="37m-Zg-yQM">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -641,6 +659,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="hSj-pt-TWT"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="35" id="B3I-o5-F15">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -677,6 +698,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="nvl-9f-Hp2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -751,7 +775,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Rwe-Ak-xWa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92806976010101006" green="0.92806976010101006" blue="0.92806976010101006" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WIz-5b-geY">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="50" height="30.5"/>
@@ -780,11 +804,11 @@
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-5i-IgG">
                                     <rect key="frame" x="143" y="7" width="34.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="centerX" secondItem="wCP-5i-IgG" secondAttribute="centerX" id="DmU-bK-N0O"/>
                                 <constraint firstAttribute="centerY" secondItem="wCP-5i-IgG" secondAttribute="centerY" id="UtL-j7-Vlk"/>
@@ -803,6 +827,8 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -927,33 +953,6 @@
             </objects>
             <point key="canvasLocation" x="2585" y="407"/>
         </scene>
-        <!--Port Louis View Controller-->
-        <scene sceneID="1Cy-Od-0fy">
-            <objects>
-                <viewController id="Ufn-Bc-HdK" customClass="PortLouisViewController" customModule="MauritiusExplored" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cYc-Kg-ocD"/>
-                        <viewControllerLayoutGuide type="bottom" id="8mc-Ee-S9f"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="B4D-CY-24n">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Xft-Mb-A0P">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Nhr-E3-cwr">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="menuButton" destination="Nhr-E3-cwr" id="b7I-ka-kkI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yoU-1B-pM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1702" y="1060"/>
-        </scene>
         <!--Post View Controller-->
         <scene sceneID="PKs-xE-ft6">
             <objects>
@@ -1070,7 +1069,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3y-FW-aSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="1772"/>
+            <point key="canvasLocation" x="830" y="2412"/>
         </scene>
         <!--Large Image View Controller-->
         <scene sceneID="w3r-5T-mtt">
@@ -1197,7 +1196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDB-bL-KyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1300" y="1772"/>
+            <point key="canvasLocation" x="1287" y="2412"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="eYF-h1-RIc">
@@ -1331,6 +1330,89 @@
             </objects>
             <point key="canvasLocation" x="1712" y="407"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P0M-ca-zWj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WDK-O0-Hgr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="exH-fh-0ja">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x5z-Rc-tT4" kind="relationship" relationship="rootViewController" id="JIT-D6-Git"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXC-sG-0iE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1368" y="1060"/>
+        </scene>
+        <!--Port Louis Collection View Controller-->
+        <scene sceneID="Sdz-kK-DSq">
+            <objects>
+                <collectionViewController id="x5z-Rc-tT4" customClass="PortLouisCollectionViewController" customModule="MauritiusExplored" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nd6-WL-THf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.91773200757575757" green="0.91773200757575757" blue="0.91773200757575757" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xh8-me-ocj">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="30"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="pcw-OO-vx8" customClass="PhotoViewCell" customModule="MauritiusExplored" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="JrN-He-Juv" kind="presentation" identifier="StretchImage" id="34g-7e-GLk"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="Rqh-z0-wOf" customClass="CollectionViewHeader" customModule="MauritiusExplored" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8Q-XY-2op">
+                                    <rect key="frame" x="143" y="6" width="35" height="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <outlet property="pHeaderText" destination="z8Q-XY-2op" id="5uo-FX-mrT"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="x5z-Rc-tT4" id="1M8-Im-JyI"/>
+                            <outlet property="delegate" destination="x5z-Rc-tT4" id="IEl-rk-EwE"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="cci-vu-Hm8">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="S5i-NU-UtP">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="menuButton" destination="S5i-NU-UtP" id="sj2-7v-aP4"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLg-NO-MJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1823" y="1060"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Button" width="563" height="64"/>
@@ -1359,6 +1441,8 @@
         <image name="surfing" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VPx-mL-gCN"/>
+        <segue reference="L1h-ka-Iye"/>
+        <segue reference="mQ8-Qm-p6y"/>
+        <segue reference="34g-7e-GLk"/>
     </inferredMetricsTieBreakers>
 </document>

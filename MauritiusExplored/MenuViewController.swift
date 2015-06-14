@@ -15,6 +15,8 @@ class MenuViewController: StaticDataTableViewController {
     var cellsHidden = true
     let defaults = NSUserDefaults.standardUserDefaults()
     var previousSelectedCell = UITableViewCell()
+    var isOtherView = false
+    var selectedIndex = NSIndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class MenuViewController: StaticDataTableViewController {
         self.cells(beachMenu, setHidden: true)
         self.reloadDataAnimated(true)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,21 +112,15 @@ class MenuViewController: StaticDataTableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-
+        //println(indexPath.row)
         previousSelectedCell.userInteractionEnabled = true
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+        selectedIndex = indexPath
         
         if selectedCell?.tag == 11{
            
@@ -172,7 +169,13 @@ class MenuViewController: StaticDataTableViewController {
                 
             }
         }
-        previousSelectedCell = selectedCell!
+                
+            //println("Setting index")
+            var currentIndex = [String: Int]()
+            currentIndex["Section"] = indexPath.section
+            currentIndex["Row"] = indexPath.row
+            defaults.setValue(currentIndex, forKey: "CurrentIndex")
+            previousSelectedCell = selectedCell!
     }
     
     

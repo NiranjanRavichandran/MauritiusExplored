@@ -68,6 +68,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
                 
                 println("Not a favourite")
                 println(self.imageDetails!.imageId)
+                favButton.setTitle("Like", forState: .Normal)
                 isFavourite = false
             }
             
@@ -108,11 +109,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             favButton.setTitle("Like", forState: .Normal)
             let newFav = favourites.filter({$0 != self.imageDetails!.imageId})
             favourites = newFav
+            isFavourite = false
             println("Favs after removing: \(favourites)")
+            
         }else{
             
             favButton.setTitle("Liked", forState: .Normal)
             favourites.append(self.imageDetails!.imageId)
+            isFavourite = true
             println("Favs after appending: \(favourites)")
         }
         
