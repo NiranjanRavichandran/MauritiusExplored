@@ -16,6 +16,7 @@
 		4222AB7F1AF7B50000D5EA00 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */; };
 		4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */; };
 		425112511B33E05300637D21 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425112501B33E05300637D21 /* Reachability.swift */; };
+		425112531B340C3A00637D21 /* BadConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425112521B340C3A00637D21 /* BadConnectionView.swift */; };
 		4297ABC71AEB80DD0036C2F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */; };
 		4297ABC91AEB80E70036C2F6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC81AEB80E70036C2F6 /* libz.dylib */; };
 		4297ABCB1AEB81050036C2F6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABCA1AEB81050036C2F6 /* SystemConfiguration.framework */; };
@@ -70,6 +71,7 @@
 		4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
 		425112501B33E05300637D21 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		425112521B340C3A00637D21 /* BadConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadConnectionView.swift; sourceTree = "<group>"; };
 		4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4297ABC81AEB80E70036C2F6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4297ABCA1AEB81050036C2F6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -184,7 +186,6 @@
 				42E970801B16E05C00C7EA54 /* ImageDetails.swift */,
 				42CF12331B0E53A3000E99D8 /* TextField.swift */,
 				42BE0B8C1B09CFFD00BE7342 /* ActivityIndicator.swift */,
-				4297FF9E1AEB624C004DA040 /* ViewController.swift */,
 				4205B1991AF640C6007B60CC /* PhotoViewCell.swift */,
 				42E970841B18CD9600C7EA54 /* ImageViewController.swift */,
 				42A366D31B133AF300AD47DC /* CollectionViewHeader.swift */,
@@ -193,10 +194,12 @@
 				425112501B33E05300637D21 /* Reachability.swift */,
 				4203A5721B21971F00293344 /* SettingsViewController.swift */,
 				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
+				425112521B340C3A00637D21 /* BadConnectionView.swift */,
 				4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */,
 				4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */,
 				420D6D0B1AF0F63000E77720 /* PostViewController.swift */,
 				420D6D091AF0C0C700E77720 /* CollectionViewController.swift */,
+				4297FF9E1AEB624C004DA040 /* ViewController.swift */,
 				4297ABE01AEBC0D20036C2F6 /* SignUpViewController.swift */,
 				4297FFA51AEB624C004DA040 /* LaunchScreen.xib */,
 				42BE0B901B0BB3BA00BE7342 /* Images.xcassets */,
@@ -356,6 +359,7 @@
 				42F4A1561B288E170098500C /* PortLouisCollectionViewController.swift in Sources */,
 				42E970851B18CD9600C7EA54 /* ImageViewController.swift in Sources */,
 				420D6D0A1AF0C0C700E77720 /* CollectionViewController.swift in Sources */,
+				425112531B340C3A00637D21 /* BadConnectionView.swift in Sources */,
 				4220FDD21B16456F00956EAD /* WestCollectionViewController.swift in Sources */,
 				42CF12341B0E53A3000E99D8 /* TextField.swift in Sources */,
 				42E970811B16E05C00C7EA54 /* ImageDetails.swift in Sources */,

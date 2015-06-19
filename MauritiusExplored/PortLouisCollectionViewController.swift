@@ -131,7 +131,10 @@ class PortLouisCollectionViewController: UICollectionViewController {
                 self.collectionView?.reloadData()
             }else{
                 
-                println("Error fetching data frpm parse")
+                if error?.code == 100{
+                    
+                    self.displayErrorView()
+                }
             }
         }
     }
@@ -234,7 +237,16 @@ class PortLouisCollectionViewController: UICollectionViewController {
             return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
-    
+    func displayErrorView(){
+        
+        let controller: BadConnectionView = self.storyboard?.instantiateViewControllerWithIdentifier("NoConnectionView") as! BadConnectionView
+        self.addChildViewController(controller)
+        controller.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(controller.view)
+        self.view.center = (self.view.superview?.center)!
+        controller.didMoveToParentViewController(self)
+    }
+
     // MARK: UICollectionViewDelegate
     
     /*

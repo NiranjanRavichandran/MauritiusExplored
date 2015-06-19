@@ -100,6 +100,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         
                         signUpAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
                         self.presentViewController(signUpAlert, animated: true, completion: nil)
+                    }else if signUpError?.code == 100{
+                        
+                        self.displayErrorView()
                     }
                 }
                 self.activityIndicator.stopAnimating()
@@ -112,6 +115,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func displayErrorView(){
+        
+        let controller: BadConnectionView = self.storyboard?.instantiateViewControllerWithIdentifier("NoConnectionView") as! BadConnectionView
+        self.addChildViewController(controller)
+        controller.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(controller.view)
+        self.view.center = (self.view.superview?.center)!
+        controller.didMoveToParentViewController(self)
+    }
+
     func displayAlert(title: String, error: String){
         
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)

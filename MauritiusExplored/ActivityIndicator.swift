@@ -21,7 +21,7 @@ class ActivityIndicator {
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator!.center = blurredView.center
         activityIndicator!.hidesWhenStopped = true
-        activityIndicator!.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
+        activityIndicator!.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         
         
         blurredView.addSubview(activityIndicator!)

@@ -13,9 +13,11 @@ class SettingsViewController: UIViewController {
     @IBOutlet var backGroundImage: UIImageView!
     @IBOutlet var adaversLink: UILabel!
     @IBOutlet var firstName: UITextField!
-    @IBOutlet var lastName: UITextField!
     @IBOutlet var email: UITextField!
     @IBOutlet var phone: UITextField!
+    @IBOutlet var editButtons: [UIButton]!
+    
+    var editEnabled = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,27 @@ class SettingsViewController: UIViewController {
             
             menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+    }
+    @IBAction func editInfo(sender: AnyObject) {
+        
+        if !editEnabled{
+            
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                
+                self.editButtons[0].alpha = 1
+                self.editButtons[1].alpha = 1
+                self.editEnabled = true
+                
+            })
+        }else{
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                
+                self.editButtons[0].alpha = 0
+                self.editButtons[1].alpha = 0
+                self.editEnabled = false
+            })
+            
         }
     }
 

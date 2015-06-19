@@ -61,14 +61,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             favExists = true
             if contains(favourites, self.imageDetails!.imageId){
                 println("Image Already Liked")
-                favButton.setTitle("Liked", forState: .Normal)
+                favButton.setImage(UIImage(named: "Heart-filled.png"), forState: .Normal)
                 isFavourite = true
                 println(self.imageDetails!.imageId)
             }else{
                 
                 println("Not a favourite")
                 println(self.imageDetails!.imageId)
-                favButton.setTitle("Like", forState: .Normal)
+                favButton.setImage(UIImage(named: "heart.png"), forState: .Normal)
                 isFavourite = false
             }
             
@@ -106,7 +106,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         
         if isFavourite{
             
-            favButton.setTitle("Like", forState: .Normal)
+            favButton.setImage(UIImage(named: "heart.png"), forState: .Normal)
             let newFav = favourites.filter({$0 != self.imageDetails!.imageId})
             favourites = newFav
             isFavourite = false
@@ -114,7 +114,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             
         }else{
             
-            favButton.setTitle("Liked", forState: .Normal)
+            favButton.setImage(UIImage(named: "Heart-filled.png"), forState: .Normal)
             favourites.append(self.imageDetails!.imageId)
             isFavourite = true
             println("Favs after appending: \(favourites)")

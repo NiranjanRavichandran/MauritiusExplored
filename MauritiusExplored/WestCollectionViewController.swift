@@ -33,7 +33,7 @@ class WestCollectionViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-       // self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "Bg5.jpg"))
+        //self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "splash-screen1.png"))
         
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
@@ -48,7 +48,7 @@ class WestCollectionViewController: UICollectionViewController {
         var loader = ActivityIndicator()
         loader.startIndicator()
         view.addSubview(loader.activityIndicator!)
-
+        
         // Do any additional setup after loading the view.
         if let direction = defaults.objectForKey("CurrentDirection") as? String{
             
@@ -57,28 +57,38 @@ class WestCollectionViewController: UICollectionViewController {
         }else{
             currentBeachDirection = "East"
         }
-        
+        self.title = "Beaches in \(currentBeachDirection!)"
         println("Loading \(currentBeachDirection) Objects")
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
-            PFUser.logInWithUsernameInBackground(defaults.objectForKey("UserMail") as! String, password: "password") { (userObject, error) -> Void in
+            if PFUser.currentUser() == nil{
                 
-                if error == nil{
+                PFUser.logInWithUsernameInBackground(defaults.objectForKey("UserMail") as! String, password: "password") { (userObject, error) -> Void in
                     
-                    println("Logged In")
-                    self.loadingObjects()
-                    loader.stopIndicator()
-                }else{
-                    println("Login failed!")
+                    if error == nil{
+                        
+                        println("Logged In")
+                        self.loadingObjects()
+                        loader.stopIndicator()
+                    }else{
+                        println("Login failed!")
+                        if error?.code == 100{
+                            
+                            self.displayErrorView()
+                        }
+                    }
                 }
+            }else{
+                println("Already Logged In!")
+                self.loadingObjects()
+                loader.stopIndicator()
             }
         })
-        
     }
     
     func loadingObjects(){
-
+        
         westBeaches = beachNames[currentBeachDirection!]!
         
         var imagesQuery = PFQuery(className: "Beach")
@@ -97,7 +107,7 @@ class WestCollectionViewController: UICollectionViewController {
                         sortedImagesDict[item.objectForKey("LinkId") as! String] = photoDtlsArray
                         
                     }else{
-                       // println("appending data")
+                        // println("appending data")
                         var photoDtlsArray: [PhotoDetails] = sortedImagesDict[item.objectForKey("LinkId") as! String]!
                         let photoObject = PhotoDetails(imageObjects: item)
                         photoDtlsArray.append(photoObject)
@@ -111,11 +121,14 @@ class WestCollectionViewController: UICollectionViewController {
                 
             }else{
                 
-                println("Fetching image error **** \(error)")
+                if error?.code == 100{
+                    
+                    self.displayErrorView()
+                }
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -183,7 +196,7 @@ class WestCollectionViewController: UICollectionViewController {
         
     }
     
-
+    
     override func shouldAutorotate() -> Bool {
         return false
     }
@@ -192,8 +205,8 @@ class WestCollectionViewController: UICollectionViewController {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             
-//            var screenWidth = CGRectGetWidth(collectionView.bounds)
-//            var cellWidth = screenWidth / 3
+            //            var screenWidth = CGRectGetWidth(collectionView.bounds)
+            //            var cellWidth = screenWidth / 3
             
             return CGSize(width: 75,height: 75)
     }
@@ -235,19 +248,29 @@ class WestCollectionViewController: UICollectionViewController {
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
         
         if toInterfaceOrientation.rawValue == UIInterfaceOrientation.LandscapeRight.rawValue{
-                        UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
-                            self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "lanscape.jpg"))
-                        })
-                    }else{
-                        UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
-            
-                            self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
-                            
-                        })
-                    }
-
+            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
+                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "lanscape.jpg"))
+            })
+        }else{
+            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
+                
+                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
+                
+            })
+        }
+        
     }
-
+    
+    func displayErrorView(){
+        
+        let controller: BadConnectionView = self.storyboard?.instantiateViewControllerWithIdentifier("NoConnectionView") as! BadConnectionView
+        self.addChildViewController(controller)
+        controller.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(controller.view)
+        self.view.center = (self.view.superview?.center)!
+        controller.didMoveToParentViewController(self)
+    }
+    
     // MARK: UICollectionViewDelegate
     
     /*
