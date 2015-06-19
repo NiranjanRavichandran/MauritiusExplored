@@ -15,6 +15,7 @@
 		4220FDD21B16456F00956EAD /* WestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */; };
 		4222AB7F1AF7B50000D5EA00 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */; };
 		4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */; };
+		425112511B33E05300637D21 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425112501B33E05300637D21 /* Reachability.swift */; };
 		4297ABC71AEB80DD0036C2F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */; };
 		4297ABC91AEB80E70036C2F6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC81AEB80E70036C2F6 /* libz.dylib */; };
 		4297ABCB1AEB81050036C2F6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABCA1AEB81050036C2F6 /* SystemConfiguration.framework */; };
@@ -68,6 +69,7 @@
 		4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WestCollectionViewController.swift; sourceTree = "<group>"; };
 		4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
+		425112501B33E05300637D21 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4297ABC81AEB80E70036C2F6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4297ABCA1AEB81050036C2F6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -188,6 +190,7 @@
 				42A366D31B133AF300AD47DC /* CollectionViewHeader.swift */,
 				42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */,
 				4297FFA01AEB624C004DA040 /* Main.storyboard */,
+				425112501B33E05300637D21 /* Reachability.swift */,
 				4203A5721B21971F00293344 /* SettingsViewController.swift */,
 				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
 				4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */,
@@ -366,6 +369,7 @@
 				4297ABE11AEBC0D20036C2F6 /* SignUpViewController.swift in Sources */,
 				4297FF9F1AEB624C004DA040 /* ViewController.swift in Sources */,
 				4297FF9D1AEB624C004DA040 /* AppDelegate.swift in Sources */,
+				425112511B33E05300637D21 /* Reachability.swift in Sources */,
 				420D6D011AEFA4CF00E77720 /* SWRevealViewController.m in Sources */,
 				42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */,
 				4203A5731B21971F00293344 /* SettingsViewController.swift in Sources */,

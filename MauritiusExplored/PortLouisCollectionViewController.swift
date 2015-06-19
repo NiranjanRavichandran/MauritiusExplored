@@ -17,6 +17,8 @@ class PortLouisCollectionViewController: UICollectionViewController {
     var sortedImages = [String: [PhotoDetails]]()
     var lFourIds = [String]()
     var selectedIndex = NSIndexPath()
+    var levelFourDict = [String: String]()
+    var currentHeading = String()
     
     @IBOutlet var menuButton: UIBarButtonItem!
     
@@ -25,7 +27,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
         currentIndex = defaults.objectForKey("CurrentIndex") as! [String: Int]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        levelFourDict = defaults.objectForKey("LevelFour") as! [String: String]
         
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
@@ -49,57 +51,58 @@ class PortLouisCollectionViewController: UICollectionViewController {
     }
     
     func loadInitialObjects(){
+        
         var levelTwoDict = defaults.objectForKey("LevelTwoDict") as! [String: String]
         var currentParent = String()
         
         switch(currentIndex["Section"]!){
-       
+            
         case 0:
             if currentIndex["Row"] == 6 || currentIndex["Row"] == 2{
-            
-            currentParent = levelTwoDict["Port-Louis"]!
-        }else if currentIndex["Row"] == 7 || currentIndex["Row"] == 3{
-            
-            currentParent = levelTwoDict["Ile aux Cerfs"]!
-        }else if currentIndex["Row"] == 8 || currentIndex["Row"] == 4{
-            
-            currentParent = levelTwoDict["Ticabo Diving Centre"]!
-        }
+                currentHeading = "Port-Louis"
+                currentParent = levelTwoDict[currentHeading]!
+            }else if currentIndex["Row"] == 7 || currentIndex["Row"] == 3{
+                currentHeading = "Ile aux Cerfs"
+                currentParent = levelTwoDict[currentHeading]!
+            }else if currentIndex["Row"] == 8 || currentIndex["Row"] == 4{
+                currentHeading = "Ticabo Diving Centre"
+                currentParent = levelTwoDict[currentHeading]!
+            }
         case 1:
             if currentIndex["Row"] == 1{
                 
             }else if currentIndex["Row"] == 2{
-                
-                currentParent = levelTwoDict["Places Of Interest"]!
+                currentHeading = "Places Of Interest"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 3{
-                
-                currentParent = levelTwoDict["Activities"]!
+                currentHeading = "Activities"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 4{
-                
-                currentParent = levelTwoDict["KiteSurf and Wind Surf"]!
+                currentHeading = "KiteSurf and Wind Surf"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 5{
-
-                currentParent = levelTwoDict["Surfing"]!
+                currentHeading = "Surfing"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 6{
-                
-                currentParent = levelTwoDict["Diving"]!
+                currentHeading = "Diving"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 7{
-                
-                currentParent = levelTwoDict["Dolphin Cruise"]!
+                currentHeading = "Dolphin Cruise"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 8{
-                
-                currentParent = levelTwoDict["Catamaran Cruise"]!
+                currentHeading = "Catamaran Cruise"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 9{
-                
-                currentParent = levelTwoDict["Mountains"]!
+                currentHeading = "Mountains"
+                currentParent = levelTwoDict[currentHeading]!
             }else if currentIndex["Row"] == 10{
-                
-                currentParent = levelTwoDict["Professional PhotoGrapher"]!
+                currentHeading = "Professional PhotoGrapher"
+                currentParent = levelTwoDict[currentHeading]!
             }
         default:
             println("Invalid Section")
         }
-        println("Current parent: \(currentParent)")
+        self.title = currentHeading
         var imagesQuery = PFQuery(className: "Beach")
         imagesQuery.whereKey("SuperParentId", equalTo: currentParent)
         imagesQuery.limit = 500
@@ -110,7 +113,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
                 for item in imageObjects!{
                     
                     if !contains(self.lFourIds, item.objectForKey("LinkId") as! String){
-                    self.lFourIds.append(item.objectForKey("LinkId") as! String)
+                        self.lFourIds.append(item.objectForKey("LinkId") as! String)
                     }
                     if self.sortedImages[item.objectForKey("LinkId") as! String] == nil{
                         let photoObject = PhotoDetails(imageObjects: item)
@@ -141,7 +144,6 @@ class PortLouisCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        println(lFourIds[section])
         let items = sortedImages[lFourIds[section]]
         return items!.count
     }
@@ -174,8 +176,13 @@ class PortLouisCollectionViewController: UICollectionViewController {
             
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
-            headerView.pHeaderText.text = "Header"
-            headerView.alpha = 0.7
+            if lFourIds.count > 1{
+                
+                headerView.pHeaderText.text = levelFourDict[lFourIds[indexPath.section]]
+            }else{
+                headerView.pHeaderText.text = currentHeading
+            }
+            //headerView.alpha = 0.7
             return headerView
             
         default:
