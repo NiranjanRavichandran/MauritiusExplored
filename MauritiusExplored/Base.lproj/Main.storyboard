@@ -1381,8 +1381,9 @@
                                     <constraint firstAttribute="width" constant="250" id="GPp-pK-7gp"/>
                                     <constraint firstAttribute="height" constant="42" id="yFa-oW-7u7"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="TextBoxMail" translatesAutoresizingMaskIntoConstraints="NO" id="5kj-K8-X42" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
                                 <rect key="frame" x="35" y="159" width="250" height="42"/>
@@ -1390,8 +1391,9 @@
                                     <constraint firstAttribute="width" constant="250" id="gcF-Qq-qeB"/>
                                     <constraint firstAttribute="height" constant="42" id="u1m-I5-0Wq"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDS-5a-lEY">
                                 <rect key="frame" x="187" y="295" width="35" height="35"/>
@@ -1413,8 +1415,9 @@
                                     <constraint firstAttribute="width" constant="250" id="nZg-TH-QMx"/>
                                     <constraint firstAttribute="height" constant="42" id="xXJ-oj-JgM"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vt-iM-Wqe">
                                 <rect key="frame" x="139" y="273" width="42" height="20.5"/>
@@ -1433,7 +1436,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveInformation:" destination="Upx-3p-Q1W" eventType="touchUpInside" id="9OB-dj-O7M"/>
+                                    <action selector="resetInfo:" destination="Upx-3p-Q1W" eventType="touchUpInside" id="VgN-kq-mlG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg2-lw-cnv">
@@ -1520,6 +1523,9 @@
                         <outlet property="phone" destination="4Rr-Xn-Dbk" id="D0C-3Q-gXc"/>
                         <outletCollection property="editButtons" destination="gDS-5a-lEY" collectionClass="NSMutableArray" id="rfO-do-Q2c"/>
                         <outletCollection property="editButtons" destination="QQ7-o2-Y3B" collectionClass="NSMutableArray" id="qWp-3Y-WGk"/>
+                        <outletCollection property="textFields" destination="dsZ-3K-AMF" collectionClass="NSMutableArray" id="ThR-jY-h7M"/>
+                        <outletCollection property="textFields" destination="5kj-K8-X42" collectionClass="NSMutableArray" id="Bov-s1-go0"/>
+                        <outletCollection property="textFields" destination="4Rr-Xn-Dbk" collectionClass="NSMutableArray" id="EDa-gl-vEL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4YP-7A-vw1" userLabel="First Responder" sceneMemberID="firstResponder"/>

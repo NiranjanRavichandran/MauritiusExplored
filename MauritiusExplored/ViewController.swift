@@ -53,13 +53,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
             var currentUser = PFUser.currentUser()
             currentUser?.setValue(contactNumber.text, forKey: "Phone")
-            currentUser?.saveInBackgroundWithBlock({ (success, error) -> Void in
+            currentUser?.saveInBackgroundWithBlock({ (success, updateError) -> Void in
                 
-                if error == nil {
+                if updateError == nil {
                     println("Saved Contact info")
                     PFUser.logInWithUsername(self.defaults.objectForKey("UserMail") as! String, password: "password")
                 }else{
-                    println("save failed:\(error)")
+                    
+                    if updateError?.code == 100{
+                        error = "Please check you internet connection and try again!"
+                    }
                 }
             })
         self.performSegueWithIdentifier("LoginPage", sender: self)
