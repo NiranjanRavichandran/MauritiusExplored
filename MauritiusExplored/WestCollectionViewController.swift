@@ -205,10 +205,16 @@ class WestCollectionViewController: UICollectionViewController {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             
-            //            var screenWidth = CGRectGetWidth(collectionView.bounds)
-            //            var cellWidth = screenWidth / 3
-            
-            return CGSize(width: 75,height: 75)
+            var screenWidth = CGRectGetWidth(collectionView.bounds)
+            var cellWidth = 50
+            if screenWidth == 320{
+                cellWidth = 75
+            }else if screenWidth == 375{
+                cellWidth = 90
+            }else if screenWidth == 414{
+                cellWidth = 100
+            }
+            return CGSize(width: cellWidth, height: cellWidth)
     }
     
     func collectionView(collectionView: UICollectionView,

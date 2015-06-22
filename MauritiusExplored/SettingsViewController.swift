@@ -94,6 +94,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         if let name = currentUser?.objectForKey("Name") as? String{
             self.firstName.text = name
         }
+        //Hiding textfields...
+        for item in self.textFields{
+            item.userInteractionEnabled = false
+        }
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            
+            for item in self.editButtons{
+                item.alpha = 0
+            }
+            self.editEnabled = false
+        })
     }
     
     @IBAction func saveInformation(sender: AnyObject) {
@@ -116,6 +127,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                         title = "Vola"
                         error = "Your info has be updated!"
                         self.displayAlert(title!, error: error!)
+                        defaults.setObject(self.email.text, forKey: "UserMail")
                         //Hiding and disabling textfields....
                         for item in self.textFields{
                             item.userInteractionEnabled = false
