@@ -46,7 +46,7 @@ class WestCollectionViewController: UICollectionViewController {
         
         
         var loader = ActivityIndicator()
-        loader.startIndicator()
+        loader.startIndicator(UIActivityIndicatorViewStyle.Gray)
         view.addSubview(loader.activityIndicator!)
         
         // Do any additional setup after loading the view.

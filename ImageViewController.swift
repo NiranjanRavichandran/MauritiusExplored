@@ -26,6 +26,10 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     var favourites = [String]()
     var isFavourite: Bool = false
     var favExists: Bool = false
+    var lattitude: String?
+    var longitude: String?
+    var webLink: String?
+    var loader = ActivityIndicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,13 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         tap.addTarget(self, action: "hideElements")
         view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
+        
+        loader.startIndicator(UIActivityIndicatorViewStyle.White)
+        view.addSubview(loader.activityIndicator!)
+        
+        if lattitude == nil{
+            directionsButton.enabled = false
+        }
         loadIntialObjects()
         
     }
@@ -74,17 +85,32 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             
         }
         
+        var query = PFQuery(className: "Category")
+        query.getObjectInBackgroundWithId(imageDetails!.linkId, block: { (fetchedObject, fetchError) -> Void in
+            
+            if fetchError == nil{
+                let details: CategoryDetails = CategoryDetails(categoryObject: fetchedObject!)
+                self.lattitude = details.lattitude
+                self.longitude = details.longitude
+                self.webLink = details.webLink
+                self.directionsButton.enabled = true
+            }
+        })
         imageDetails?.largeImage.getDataInBackgroundWithBlock({ (imageData, dataError) -> Void in
             
             if dataError == nil{
                 
                 self.largeImageView.image = UIImage(data: imageData!)
-                
+                self.loader.stopIndicator()
             } else{
                 
                 println("Error fetching image: \(dataError)")
             }
         })
+        
+        if lattitude != nil || webLink != nil{
+            directionsButton.enabled = true
+        }
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
@@ -110,14 +136,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
             let newFav = favourites.filter({$0 != self.imageDetails!.imageId})
             favourites = newFav
             isFavourite = false
-            println("Favs after removing: \(favourites)")
+            //println("Favs after removing: \(favourites)")
             
         }else{
             
             favButton.setImage(UIImage(named: "Heart-filled.png"), forState: .Normal)
             favourites.append(self.imageDetails!.imageId)
             isFavourite = true
-            println("Favs after appending: \(favourites)")
+            //println("Favs after appending: \(favourites)")
         }
         
         defaults.setObject(favourites, forKey: "Favourites")
@@ -165,7 +191,25 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func showDirectionOnMaps(sender: AnyObject) {
         
-        
+        if webLink! == "" || webLink == nil {
+            println("Open maps")
+            if UIApplication.sharedApplication().canOpenURL(NSURL(string: "comgooglemaps://")!){
+                
+                //println("Opening Google maps")
+                
+                UIApplication.sharedApplication().openURL(NSURL(string:"comgooglemaps://?saddr=&daddr=\(lattitude!),\(longitude!)&directionsmode=driving")!)
+                
+            }else{
+                
+                //println("Opening Apple maps")
+                
+                UIApplication.sharedApplication().openURL(NSURL(string:"http://maps.apple.com/?daddr=\(lattitude),\(longitude)&saddr=")!)
+                
+            }
+        }else{
+            println("Weblink****\(webLink)")
+            UIApplication.sharedApplication().openURL(NSURL(string: self.webLink!)!)
+        }
     }
     @IBAction func doneAction(sender: AnyObject) {
         

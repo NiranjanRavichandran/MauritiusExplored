@@ -38,7 +38,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         }
         
         var loader = ActivityIndicator()
-        loader.startIndicator()
+        loader.startIndicator(UIActivityIndicatorViewStyle.Gray)
         view.addSubview(loader.blurredView)
         
         //Perfroming Login

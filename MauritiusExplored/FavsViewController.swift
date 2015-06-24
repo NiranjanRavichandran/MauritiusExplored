@@ -17,6 +17,8 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     var favsArray: [String]?
     var favImages = [PhotoDetails]()
     var currentIndex = Int()
+    var currenSection = Int()
+    var imageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,18 +32,40 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 2
-        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        collectionView?.dataSource = self
-        collectionView?.delegate = self
-        collectionView?.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView?.backgroundColor = UIColor.clearColor()
-        self.view.addSubview(collectionView!)
         
+        var index = defaults.objectForKey("CurrentIndex") as! [String: Int]
+        currenSection = index["Section"]!
+        if currenSection == 2{
+            let layout = UICollectionViewFlowLayout()
+            layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+            layout.minimumInteritemSpacing = 1
+            layout.minimumLineSpacing = 2
+            collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+            collectionView?.dataSource = self
+            collectionView?.delegate = self
+            collectionView?.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: "Cell")
+            collectionView?.backgroundColor = UIColor.clearColor()
+            self.view.addSubview(collectionView!)
+        }else {
+            imageView.frame = UIScreen.mainScreen().bounds
+            imageView.center = self.view.center
+            imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            var query = PFQuery(className: "Beach")
+            query.getObjectInBackgroundWithId("bFNiCTtXts", block: { (imageObject, imageError) -> Void in
+                
+                if imageError == nil{
+                    let imageDetails: PhotoDetails = PhotoDetails(imageObjects: imageObject!)
+                    imageDetails.largeImage.getDataInBackgroundWithBlock({ (imageData, dataError) -> Void in
+                        
+                        if dataError == nil{
+                            self.imageView.image = UIImage(data: imageData!)
+                        }
+                    })
+                }
+            })
+            self.view.addSubview(imageView)
+            
+        }
         
     }
 

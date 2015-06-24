@@ -481,6 +481,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="WDK-O0-Hgr" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="NsP-Ab-gCo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -518,6 +521,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="o6t-zi-dUT" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="C3A-Uf-X1r"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="beachCell" rowHeight="35" id="rS0-Wz-SDV">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1730,6 +1736,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="gfP-Xe-HDX"/>
         <segue reference="L1h-ka-Iye"/>
-        <segue reference="goT-Ir-960"/>
+        <segue reference="qVC-2G-fei"/>
+        <segue reference="ZCD-wM-HKF"/>
     </inferredMetricsTieBreakers>
 </document>

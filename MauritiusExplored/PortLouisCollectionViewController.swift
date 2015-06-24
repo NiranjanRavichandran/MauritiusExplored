@@ -53,7 +53,11 @@ class PortLouisCollectionViewController: UICollectionViewController {
     func loadInitialObjects(){
         
         var levelTwoDict = defaults.objectForKey("LevelTwoDict") as! [String: String]
+        println(levelTwoDict)
         var currentParent = String()
+        var loader = ActivityIndicator()
+        loader.startIndicator(UIActivityIndicatorViewStyle.Gray)
+        view.addSubview(loader.activityIndicator!)
         
         switch(currentIndex["Section"]!){
             
@@ -67,6 +71,10 @@ class PortLouisCollectionViewController: UICollectionViewController {
             }else if currentIndex["Row"] == 8 || currentIndex["Row"] == 4{
                 currentHeading = "Ticabo Diving Centre"
                 currentParent = levelTwoDict[currentHeading]!
+            }else if currentIndex["Row"] == 9 || currentIndex["Row"] == 5{
+                currentHeading = "Airport"
+                currentParent = levelTwoDict[currentHeading]!
+                println("Parent: \(currentParent)")
             }
         case 1:
             if currentIndex["Row"] == 1{
@@ -129,6 +137,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
                 // println(self.lFourIds)
                 // println(self.sortedImages)
                 self.collectionView?.reloadData()
+                loader.stopIndicator()
             }else{
                 
                 if error?.code == 100{
@@ -175,16 +184,24 @@ class PortLouisCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
+        var headerString = NSString()
         switch kind{
-            
+    
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
             if lFourIds.count > 1{
                 
                 headerView.pHeaderText.text = levelFourDict[lFourIds[indexPath.section]]
+                headerString = levelFourDict[lFourIds[indexPath.section]]!
             }else{
                 headerView.pHeaderText.text = currentHeading
+                headerString = currentHeading
             }
+            
+            var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName: headerView.pHeaderText.font])
+            headerView.frame.size.width = newSize.width + 20
+            headerView.layer.cornerRadius = 15
+            headerView.center.x = collectionView.center.x
             headerView.alpha = 0.7
             return headerView
             

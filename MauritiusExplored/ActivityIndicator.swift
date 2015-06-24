@@ -14,14 +14,14 @@ class ActivityIndicator {
     let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
     var blurredView: UIVisualEffectView = UIVisualEffectView()
     
-    func startIndicator(){
+    func startIndicator(activityStyle: UIActivityIndicatorViewStyle){
         
         blurredView = UIVisualEffectView(effect: blurEffect)
         blurredView.frame = UIScreen.mainScreen().bounds
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator!.center = blurredView.center
         activityIndicator!.hidesWhenStopped = true
-        activityIndicator!.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        activityIndicator!.activityIndicatorViewStyle = activityStyle
         
         
         blurredView.addSubview(activityIndicator!)
