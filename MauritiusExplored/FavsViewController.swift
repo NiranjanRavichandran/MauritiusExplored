@@ -11,6 +11,7 @@ import Parse
 
 class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    @IBOutlet var infoText: UILabel!
     @IBOutlet var menuButton: UIBarButtonItem!
     var collectionView: UICollectionView?
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -27,6 +28,13 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         // Do any additional setup after loading the view.
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
+        //Custom Activity Indicator
+        let activityView : DGActivityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
+        activityView.frame = CGRectMake(0, 0, 50, 50)
+        activityView.center = view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+        
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -36,17 +44,25 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         var index = defaults.objectForKey("CurrentIndex") as! [String: Int]
         currenSection = index["Section"]!
         if currenSection == 2{
+            
+            if favsArray == nil{
+                infoText.alpha = 1
+            }
             let layout = UICollectionViewFlowLayout()
             layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
             layout.minimumInteritemSpacing = 1
             layout.minimumLineSpacing = 2
             collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+            collectionView?.frame.origin.y = 65
             collectionView?.dataSource = self
             collectionView?.delegate = self
             collectionView?.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: "Cell")
             collectionView?.backgroundColor = UIColor.clearColor()
             self.view.addSubview(collectionView!)
+            activityView.stopAnimating()
+            
         }else {
+            self.title = "Fly to Mauritius"
             imageView.frame = UIScreen.mainScreen().bounds
             imageView.center = self.view.center
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
@@ -59,6 +75,7 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
                         
                         if dataError == nil{
                             self.imageView.image = UIImage(data: imageData!)
+                            activityView.stopAnimating()
                         }
                     })
                 }
@@ -85,7 +102,7 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! PhotoViewCell
-        cell.backgroundColor = UIColor.grayColor()
+        cell.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 244/255, alpha: 1.0)
         let imageQuery = PFQuery(className: "Beach")
         imageQuery.getObjectInBackgroundWithId(favsArray![indexPath.row], block: { (fetchedObject, error) -> Void in
             

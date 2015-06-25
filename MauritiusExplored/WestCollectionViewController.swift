@@ -38,16 +38,18 @@ class WestCollectionViewController: UICollectionViewController {
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
+        let activityView : DGActivityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
+        activityView.frame = CGRectMake(0, 0, 50, 50)
+        activityView.center = view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
+        
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
-        
-        var loader = ActivityIndicator()
-        loader.startIndicator(UIActivityIndicatorViewStyle.Gray)
-        view.addSubview(loader.activityIndicator!)
+
         
         // Do any additional setup after loading the view.
         if let direction = defaults.objectForKey("CurrentDirection") as? String{
@@ -70,7 +72,7 @@ class WestCollectionViewController: UICollectionViewController {
                         
                         println("Logged In")
                         self.loadingObjects()
-                        loader.stopIndicator()
+                        activityView.stopAnimating()
                     }else{
                         println("Login failed!")
                         if error?.code == 100{
@@ -82,7 +84,7 @@ class WestCollectionViewController: UICollectionViewController {
             }else{
                 println("Already Logged In!")
                 self.loadingObjects()
-                loader.stopIndicator()
+                activityView.stopAnimating()
             }
         })
     }
@@ -152,8 +154,8 @@ class WestCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoViewCell
-        cell.backgroundColor = UIColor.darkGrayColor()
-        cell.layer.cornerRadius = 15
+        cell.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 244/255, alpha: 1.0)
+        //cell.layer.cornerRadius = 15
         // Configure the cell
         if sortedImagesDict.count > 0 {
             let imageDetailsArray: [PhotoDetails] = sortedImagesDict[beachIdsDict[westBeaches[indexPath.section]]!]!
@@ -173,10 +175,6 @@ class WestCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        switch kind{
-            
-        case UICollectionElementKindSectionHeader:
             
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
             var headerString = westBeaches[indexPath.section] as NSString
@@ -187,12 +185,6 @@ class WestCollectionViewController: UICollectionViewController {
             headerView.center.x = collectionView.center.x
             headerView.alpha = 0.7
             return headerView
-            
-        default:
-            
-            assert(false, "Unexpected element Kind")
-            
-        }
         
     }
     

@@ -10,13 +10,10 @@
 		4203A5731B21971F00293344 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4203A5721B21971F00293344 /* SettingsViewController.swift */; };
 		4205B19A1AF640C6007B60CC /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205B1991AF640C6007B60CC /* PhotoViewCell.swift */; };
 		420D6D011AEFA4CF00E77720 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D001AEFA4CF00E77720 /* SWRevealViewController.m */; };
-		420D6D0A1AF0C0C700E77720 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D091AF0C0C700E77720 /* CollectionViewController.swift */; };
 		420D6D0C1AF0F63000E77720 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420D6D0B1AF0F63000E77720 /* PostViewController.swift */; };
 		4220FDD21B16456F00956EAD /* WestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */; };
 		4222AB7F1AF7B50000D5EA00 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */; };
-		4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */; };
 		423704661B37F62900BD0DED /* FavsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423704651B37F62900BD0DED /* FavsViewController.swift */; };
-		425112511B33E05300637D21 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425112501B33E05300637D21 /* Reachability.swift */; };
 		425112531B340C3A00637D21 /* BadConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425112521B340C3A00637D21 /* BadConnectionView.swift */; };
 		4297ABC71AEB80DD0036C2F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */; };
 		4297ABC91AEB80E70036C2F6 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4297ABC81AEB80E70036C2F6 /* libz.dylib */; };
@@ -44,6 +41,15 @@
 		42CF12341B0E53A3000E99D8 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CF12331B0E53A3000E99D8 /* TextField.swift */; };
 		42E970811B16E05C00C7EA54 /* ImageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E970801B16E05C00C7EA54 /* ImageDetails.swift */; };
 		42E970851B18CD9600C7EA54 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E970841B18CD9600C7EA54 /* ImageViewController.swift */; };
+		42ECFA671B3AB2D4001728B2 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */; };
+		42ECFA6D1B3B1EA7001728B2 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA6C1B3B1EA7001728B2 /* DGActivityIndicatorView.m */; };
+		42ECFA7D1B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA701B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.m */; };
+		42ECFA7E1B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA721B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.m */; };
+		42ECFA7F1B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA741B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.m */; };
+		42ECFA801B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA761B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.m */; };
+		42ECFA811B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA781B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m */; };
+		42ECFA821B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA7A1B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m */; };
+		42ECFA831B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA7C1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m */; };
 		42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */; };
 		42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1531B26DC6B0098500C /* NavigationViewController.m */; };
 		42F4A1561B288E170098500C /* PortLouisCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */; };
@@ -66,13 +72,10 @@
 		420D6CFE1AEFA4C500E77720 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
 		420D6CFF1AEFA4CE00E77720 /* MauritiusExplored-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MauritiusExplored-Bridging-Header.h"; sourceTree = "<group>"; };
 		420D6D001AEFA4CF00E77720 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
-		420D6D091AF0C0C700E77720 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		420D6D0B1AF0F63000E77720 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WestCollectionViewController.swift; sourceTree = "<group>"; };
 		4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
 		423704651B37F62900BD0DED /* FavsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavsViewController.swift; sourceTree = "<group>"; };
-		425112501B33E05300637D21 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		425112521B340C3A00637D21 /* BadConnectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadConnectionView.swift; sourceTree = "<group>"; };
 		4297ABC61AEB80DD0036C2F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4297ABC81AEB80E70036C2F6 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -105,6 +108,24 @@
 		42CF12331B0E53A3000E99D8 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		42E970801B16E05C00C7EA54 /* ImageDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDetails.swift; path = ../ImageDetails.swift; sourceTree = "<group>"; };
 		42E970841B18CD9600C7EA54 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ../ImageViewController.swift; sourceTree = "<group>"; };
+		42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		42ECFA6A1B3B1EA7001728B2 /* DGActivityIndicatorAnimationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorAnimationProtocol.h; sourceTree = "<group>"; };
+		42ECFA6B1B3B1EA7001728B2 /* DGActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorView.h; sourceTree = "<group>"; };
+		42ECFA6C1B3B1EA7001728B2 /* DGActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorView.m; sourceTree = "<group>"; };
+		42ECFA6F1B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorDoubleBounceAnimation.h; sourceTree = "<group>"; };
+		42ECFA701B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorDoubleBounceAnimation.m; sourceTree = "<group>"; };
+		42ECFA711B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorFiveDotsAnimation.h; sourceTree = "<group>"; };
+		42ECFA721B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorFiveDotsAnimation.m; sourceTree = "<group>"; };
+		42ECFA731B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorNineDotsAnimation.h; sourceTree = "<group>"; };
+		42ECFA741B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorNineDotsAnimation.m; sourceTree = "<group>"; };
+		42ECFA751B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorRotatingSquaresAnimation.h; sourceTree = "<group>"; };
+		42ECFA761B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorRotatingSquaresAnimation.m; sourceTree = "<group>"; };
+		42ECFA771B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorTriplePulseAnimation.h; sourceTree = "<group>"; };
+		42ECFA781B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorTriplePulseAnimation.m; sourceTree = "<group>"; };
+		42ECFA791B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorTwoDotsAnimation.h; sourceTree = "<group>"; };
+		42ECFA7A1B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorTwoDotsAnimation.m; sourceTree = "<group>"; };
+		42ECFA7B1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorThreeDotsAnimation.h; sourceTree = "<group>"; };
+		42ECFA7C1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorThreeDotsAnimation.m; sourceTree = "<group>"; };
 		42F4A14D1B26D9590098500C /* UINavigationController+rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+rotation.h"; path = "MauritiusExplored/UINavigationController+rotation.h"; sourceTree = "<group>"; };
 		42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+rotation.m"; path = "MauritiusExplored/UINavigationController+rotation.m"; sourceTree = "<group>"; };
 		42F4A1521B26DC6B0098500C /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationViewController.h; path = MauritiusExplored/NavigationViewController.h; sourceTree = "<group>"; };
@@ -150,8 +171,8 @@
 				42A366CE1B120BE900AD47DC /* StaticDataTableViewController.h */,
 				42A366CF1B120BE900AD47DC /* StaticDataTableViewController.m */,
 				420D6D001AEFA4CF00E77720 /* SWRevealViewController.m */,
-				420D6CFF1AEFA4CE00E77720 /* MauritiusExplored-Bridging-Header.h */,
 				420D6CFE1AEFA4C500E77720 /* SWRevealViewController.h */,
+				420D6CFF1AEFA4CE00E77720 /* MauritiusExplored-Bridging-Header.h */,
 			);
 			name = SlideViewControllers;
 			sourceTree = "<group>";
@@ -163,6 +184,8 @@
 				42F4A1531B26DC6B0098500C /* NavigationViewController.m */,
 				42F4A14D1B26D9590098500C /* UINavigationController+rotation.h */,
 				42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */,
+				42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */,
+				42ECFA6E1B3B1ECC001728B2 /* ActivityView */,
 				420D6D021AEFA4DA00E77720 /* SlideViewControllers */,
 				4297FFBE1AEB62A9004DA040 /* Frameworks */,
 				4297FF991AEB624C004DA040 /* MauritiusExplored */,
@@ -185,7 +208,6 @@
 			children = (
 				4297FF9C1AEB624C004DA040 /* AppDelegate.swift */,
 				42CF12331B0E53A3000E99D8 /* TextField.swift */,
-				425112501B33E05300637D21 /* Reachability.swift */,
 				42E970801B16E05C00C7EA54 /* ImageDetails.swift */,
 				4205B1991AF640C6007B60CC /* PhotoViewCell.swift */,
 				42F4A1571B29516C0098500C /* CategoryDetails.swift */,
@@ -201,8 +223,6 @@
 				4203A5721B21971F00293344 /* SettingsViewController.swift */,
 				42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */,
 				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
-				4222AB801AFA42A600D5EA00 /* LargeImageViewController.swift */,
-				420D6D091AF0C0C700E77720 /* CollectionViewController.swift */,
 				420D6D0B1AF0F63000E77720 /* PostViewController.swift */,
 				4297FFA51AEB624C004DA040 /* LaunchScreen.xib */,
 				42BE0B901B0BB3BA00BE7342 /* Images.xcassets */,
@@ -256,6 +276,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		42ECFA6E1B3B1ECC001728B2 /* ActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				42ECFA841B3B1EF0001728B2 /* Animation */,
+				42ECFA6A1B3B1EA7001728B2 /* DGActivityIndicatorAnimationProtocol.h */,
+				42ECFA6B1B3B1EA7001728B2 /* DGActivityIndicatorView.h */,
+				42ECFA6C1B3B1EA7001728B2 /* DGActivityIndicatorView.m */,
+			);
+			name = ActivityView;
+			sourceTree = "<group>";
+		};
+		42ECFA841B3B1EF0001728B2 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				42ECFA6F1B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.h */,
+				42ECFA701B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.m */,
+				42ECFA711B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.h */,
+				42ECFA721B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.m */,
+				42ECFA731B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.h */,
+				42ECFA741B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.m */,
+				42ECFA751B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.h */,
+				42ECFA761B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.m */,
+				42ECFA771B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.h */,
+				42ECFA781B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m */,
+				42ECFA791B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.h */,
+				42ECFA7A1B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m */,
+				42ECFA7B1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.h */,
+				42ECFA7C1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,7 +357,7 @@
 				TargetAttributes = {
 					4297FF961AEB624B004DA040 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 7R8U9B2AP5;
+						DevelopmentTeam = YZWVEPE37A;
 					};
 					4297FFAB1AEB624C004DA040 = {
 						CreatedOnToolsVersion = 6.2;
@@ -361,25 +413,31 @@
 				4222AB7F1AF7B50000D5EA00 /* MenuViewController.swift in Sources */,
 				42F4A1561B288E170098500C /* PortLouisCollectionViewController.swift in Sources */,
 				42E970851B18CD9600C7EA54 /* ImageViewController.swift in Sources */,
-				420D6D0A1AF0C0C700E77720 /* CollectionViewController.swift in Sources */,
+				42ECFA6D1B3B1EA7001728B2 /* DGActivityIndicatorView.m in Sources */,
 				425112531B340C3A00637D21 /* BadConnectionView.swift in Sources */,
 				4220FDD21B16456F00956EAD /* WestCollectionViewController.swift in Sources */,
 				42CF12341B0E53A3000E99D8 /* TextField.swift in Sources */,
 				42E970811B16E05C00C7EA54 /* ImageDetails.swift in Sources */,
+				42ECFA801B3B1EE4001728B2 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				42ECFA811B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
+				42ECFA7D1B3B1EE4001728B2 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				42BE0B8D1B09CFFD00BE7342 /* ActivityIndicator.swift in Sources */,
 				423704661B37F62900BD0DED /* FavsViewController.swift in Sources */,
 				42F4A1581B29516C0098500C /* CategoryDetails.swift in Sources */,
 				420D6D0C1AF0F63000E77720 /* PostViewController.swift in Sources */,
-				4222AB811AFA42A600D5EA00 /* LargeImageViewController.swift in Sources */,
 				4205B19A1AF640C6007B60CC /* PhotoViewCell.swift in Sources */,
 				42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */,
 				42A366D01B120BE900AD47DC /* StaticDataTableViewController.m in Sources */,
+				42ECFA821B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				4297ABE11AEBC0D20036C2F6 /* SignUpViewController.swift in Sources */,
 				4297FF9F1AEB624C004DA040 /* ViewController.swift in Sources */,
 				4297FF9D1AEB624C004DA040 /* AppDelegate.swift in Sources */,
-				425112511B33E05300637D21 /* Reachability.swift in Sources */,
+				42ECFA7F1B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
+				42ECFA7E1B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				420D6D011AEFA4CF00E77720 /* SWRevealViewController.m in Sources */,
 				42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */,
+				42ECFA831B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
+				42ECFA671B3AB2D4001728B2 /* SCLAlertView.swift in Sources */,
 				4203A5731B21971F00293344 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

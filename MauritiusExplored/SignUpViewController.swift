@@ -47,8 +47,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         var error = ""
         
-        if email.text == "" {
-            error = "Please enter your email"
+        if !isValidEmail(email.text){
+            error = "Please enter a valid email Id"
         }else{
             
             activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
@@ -72,17 +72,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     
                     println("Sign up Success!")
                     defaults.setObject(self.email.text, forKey: "UserMail")
-                    self.performSegueWithIdentifier("toNextView", sender: self)
+                    self.performSegueWithIdentifier("login", sender: self)
                     
                 }else{
                     if signUpError?.code == 202{
                         
-                        var signUpAlert = UIAlertController(title: "Email already exists!", message: "Please use a different email or continue with the same email", preferredStyle: .Alert)
-                        signUpAlert.addAction(UIAlertAction(title: "Continue", style: .Default, handler: { action in
-                            
+//                        var signUpAlert = UIAlertController(title: "Email already exists!", message: "Please use a different email or continue with the same email", preferredStyle: .Alert)
+//                        signUpAlert.addAction(UIAlertAction(title: "Continue", style: .Default, handler: { action in
+//                            
+//                            
+//                        }))
+                        
+                        let alert = SCLAlertView()
+                        alert.addButton("Continue", action: { () -> Void in
                             println("Lets begin!")
                             defaults.setObject(self.email.text, forKey: "UserMail")
-
+                            
                             // Loading favourites for existing email
                             let getFavQuery = PFQuery(className: "Favourites")
                             getFavQuery.whereKey("UserId", equalTo: self.email.text)
@@ -95,11 +100,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                                 }
                             })
                             
-                            self.performSegueWithIdentifier("toNextView", sender: self)
-                        }))
-                        
-                        signUpAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-                        self.presentViewController(signUpAlert, animated: true, completion: nil)
+                            self.performSegueWithIdentifier("login", sender: self)
+                        })
+                        alert.showNotice("Email already exists!", subTitle: "Please use a different email or click continue to proceed with same email.", closeButtonTitle: "Cancel", duration: 0, colorStyle: 0x727375, colorTextButton: 0xFFFFFF)
+//                        signUpAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+//                        self.presentViewController(signUpAlert, animated: true, completion: nil)
                     }else if signUpError?.code == 100{
                         
                         self.displayErrorView()
@@ -111,7 +116,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         
         if error != ""{
-            displayAlert("Oops!", error: error)
+            //displayAlert("Oops!", error: error)
+            SCLAlertView().showError("Oops!", subTitle:error, closeButtonTitle:"OK")
         }
     }
     
@@ -125,12 +131,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         controller.didMoveToParentViewController(self)
     }
 
-    func displayAlert(title: String, error: String){
+//    func displayAlert(title: String, error: String){
+//        
+//        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+//        
+//        self.presentViewController(alert, animated: true, completion: nil)
+//    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
         
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

@@ -145,7 +145,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="email" destination="Lox-f0-hOd" id="tbf-4H-qGW"/>
-                        <segue destination="vXZ-lx-hvc" kind="show" identifier="toNextView" id="8PN-g9-g40"/>
+                        <segue destination="hMC-kL-CRN" kind="show" identifier="login" id="dEI-fF-QpQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMo-za-Vsh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -791,7 +791,19 @@
                     <view key="view" contentMode="scaleToFill" id="DCi-dm-Lb8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Favourites Yet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7R8-xk-7li">
+                                <rect key="frame" x="98" y="274" width="125" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="7R8-xk-7li" secondAttribute="centerY" id="ZQm-bE-bfk"/>
+                            <constraint firstAttribute="centerX" secondItem="7R8-xk-7li" secondAttribute="centerX" id="t2B-sG-IGA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favourites" id="4Wm-gV-owI">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="dq3-PN-7re">
@@ -800,6 +812,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="infoText" destination="7R8-xk-7li" id="16n-Um-gf8"/>
                         <outlet property="menuButton" destination="dq3-PN-7re" id="1ye-5h-teU"/>
                         <segue destination="JrN-He-Juv" kind="presentation" identifier="largeFav" id="goT-Ir-960"/>
                     </connections>
@@ -899,7 +912,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="0.88627450980392153" green="0.23361823964783282" blue="0.17773477812177502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="JrN-He-Juv" kind="presentation" identifier="LargeImageView" id="ZCD-wM-HKF"/>
                                 </connections>
@@ -1403,7 +1416,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="shareOption:" destination="Upx-3p-Q1W" eventType="touchUpInside" id="wTy-4f-VUZ"/>
+                                    <action selector="displayAbout:" destination="Upx-3p-Q1W" eventType="touchUpInside" id="VpS-aZ-bhB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-W7-0iq">
@@ -1412,25 +1425,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" background="TextBoxUser" translatesAutoresizingMaskIntoConstraints="NO" id="dsZ-3K-AMF" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
-                                <rect key="frame" x="35" y="94" width="250" height="42"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" background="TextBoxUser" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dsZ-3K-AMF" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
+                                <rect key="frame" x="35" y="103" width="250" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="GPp-pK-7gp"/>
                                     <constraint firstAttribute="height" constant="42" id="yFa-oW-7u7"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="TextBoxMail" translatesAutoresizingMaskIntoConstraints="NO" id="5kj-K8-X42" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
-                                <rect key="frame" x="35" y="159" width="250" height="42"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="TextBoxMail" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5kj-K8-X42" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
+                                <rect key="frame" x="35" y="163" width="250" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="gcF-Qq-qeB"/>
                                     <constraint firstAttribute="height" constant="42" id="u1m-I5-0Wq"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDS-5a-lEY">
                                 <rect key="frame" x="187" y="295" width="35" height="35"/>
@@ -1446,7 +1459,7 @@
                                     <action selector="saveInformation:" destination="Upx-3p-Q1W" eventType="touchUpInside" id="PXe-PG-B7b"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" background="TextBoxPhone" translatesAutoresizingMaskIntoConstraints="NO" id="4Rr-Xn-Dbk" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" background="TextBoxPhone" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Rr-Xn-Dbk" customClass="TextField" customModule="MauritiusExplored" customModuleProvider="target">
                                 <rect key="frame" x="35" y="223" width="250" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="nZg-TH-QMx"/>
@@ -1512,7 +1525,7 @@
                             <constraint firstItem="AB4-o3-fRp" firstAttribute="trailing" secondItem="k5b-SE-kdu" secondAttribute="trailingMargin" id="M3H-f2-Pp4"/>
                             <constraint firstItem="YZR-Dg-cTc" firstAttribute="top" secondItem="k5b-SE-kdu" secondAttribute="topMargin" id="QKq-Ec-PwQ"/>
                             <constraint firstAttribute="centerX" secondItem="7Vt-iM-Wqe" secondAttribute="centerX" id="Rmn-qv-WaI"/>
-                            <constraint firstItem="4Rr-Xn-Dbk" firstAttribute="top" secondItem="5kj-K8-X42" secondAttribute="bottom" constant="22" id="USg-ol-dIa"/>
+                            <constraint firstItem="4Rr-Xn-Dbk" firstAttribute="top" secondItem="5kj-K8-X42" secondAttribute="bottom" constant="18" id="USg-ol-dIa"/>
                             <constraint firstItem="gDS-5a-lEY" firstAttribute="top" secondItem="7Vt-iM-Wqe" secondAttribute="bottom" constant="1" id="UW3-pT-1gO"/>
                             <constraint firstItem="pDN-6c-Fce" firstAttribute="top" secondItem="Gew-hb-SqY" secondAttribute="bottom" constant="16" id="XCw-70-jOG"/>
                             <constraint firstItem="pDN-6c-Fce" firstAttribute="leading" secondItem="k5b-SE-kdu" secondAttribute="leadingMargin" id="Xat-Qk-TlU"/>
@@ -1537,7 +1550,7 @@
                             <constraint firstItem="gDS-5a-lEY" firstAttribute="leading" secondItem="Bg2-lw-cnv" secondAttribute="trailing" constant="6" id="ulg-X8-OqN"/>
                             <constraint firstItem="PjV-Ne-C8j" firstAttribute="top" secondItem="k5b-SE-kdu" secondAttribute="topMargin" constant="30" id="wxY-fc-E2o"/>
                             <constraint firstAttribute="centerX" secondItem="pDN-6c-Fce" secondAttribute="centerX" id="xXE-tR-33N"/>
-                            <constraint firstItem="5kj-K8-X42" firstAttribute="top" secondItem="dsZ-3K-AMF" secondAttribute="bottom" constant="23" id="yrC-Cf-DtW"/>
+                            <constraint firstItem="5kj-K8-X42" firstAttribute="top" secondItem="dsZ-3K-AMF" secondAttribute="bottom" constant="18" id="yrC-Cf-DtW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1630,7 +1643,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="JrN-He-Juv" kind="presentation" identifier="StretchImage" id="34g-7e-GLk"/>
                                 </connections>
@@ -1735,8 +1748,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gfP-Xe-HDX"/>
-        <segue reference="L1h-ka-Iye"/>
+        <segue reference="dEI-fF-QpQ"/>
         <segue reference="qVC-2G-fei"/>
-        <segue reference="ZCD-wM-HKF"/>
+        <segue reference="L1h-ka-Iye"/>
+        <segue reference="34g-7e-GLk"/>
     </inferredMetricsTieBreakers>
 </document>

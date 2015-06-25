@@ -55,9 +55,12 @@ class PortLouisCollectionViewController: UICollectionViewController {
         var levelTwoDict = defaults.objectForKey("LevelTwoDict") as! [String: String]
         println(levelTwoDict)
         var currentParent = String()
-        var loader = ActivityIndicator()
-        loader.startIndicator(UIActivityIndicatorViewStyle.Gray)
-        view.addSubview(loader.activityIndicator!)
+        //Custom Activity Indicator
+        let activityView : DGActivityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
+        activityView.frame = CGRectMake(0, 0, 50, 50)
+        activityView.center = view.center
+        self.view.addSubview(activityView)
+        activityView.startAnimating()
         
         switch(currentIndex["Section"]!){
             
@@ -137,7 +140,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
                 // println(self.lFourIds)
                 // println(self.sortedImages)
                 self.collectionView?.reloadData()
-                loader.stopIndicator()
+                activityView.stopAnimating()
             }else{
                 
                 if error?.code == 100{
@@ -162,7 +165,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoViewCell
-        cell.backgroundColor = UIColor.darkGrayColor()
+        cell.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 244/255, alpha: 1.0)
         
         // Configure the cell
         if sortedImages.count > 0{
@@ -185,9 +188,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         var headerString = NSString()
-        switch kind{
     
-        case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
             if lFourIds.count > 1{
                 
@@ -204,12 +205,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
             headerView.center.x = collectionView.center.x
             headerView.alpha = 0.7
             return headerView
-            
-        default:
-            
-            assert(false, "Unexpected element Kind")
-        }
-        
+     
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

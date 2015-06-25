@@ -20,6 +20,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var textFields: [TextField]!
     var editEnabled = false
+    let alert = SCLAlertView()
+    let errorAlert = SCLAlertView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,23 +113,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         var error: String?
         var title: String?
         var currentUser = PFUser.currentUser()
-        for item in textFields{
-            if item.text == ""{
-                title = "Oops!"
-                error = "Please enter all fields."
-                displayAlert(title!, error: error!)
-            }else{
-                
+        
+        if email.text == "" || email.text == nil{
+            title = "Oops!"
+            error = "Please enter your email ID"
+            errorAlert.showError(title!, subTitle: error!, closeButtonTitle: "Okay", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
+        }else{
+            if isValidEmail(email.text){
                 currentUser?.email = email.text
                 currentUser?.setValue(firstName.text, forKey: "Name")
                 currentUser?.setValue(phone.text, forKey: "Phone")
                 currentUser?.saveInBackgroundWithBlock({ (success, updateError) -> Void in
                     
                     if updateError == nil{
-                        title = "Vola"
+                        title = "Success!"
                         error = "Your info has be updated!"
-                        self.displayAlert(title!, error: error!)
+                        self.alert.showSuccess(title!, subTitle: error!, closeButtonTitle: "Okay", duration: 0, colorStyle: 0x22B573, colorTextButton: 0xFFFFFF)
                         defaults.setObject(self.email.text, forKey: "UserMail")
+                        
                         //Hiding and disabling textfields....
                         for item in self.textFields{
                             item.userInteractionEnabled = false
@@ -139,18 +142,27 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                             }
                             self.editEnabled = false
                         })
-                        
                     }else{
                         if updateError!.code == 100{
                             title = "Oops!"
                             error = "Please check your internet connection. Re-attempting to save."
-                            self.displayAlert(title!, error: error!)
+                            self.errorAlert.showError(title!, subTitle: error!, closeButtonTitle: "Done", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
                         }
                     }
                 })
+            }else{
                 
+                title = "Oops!"
+                error = "Please enter valid email ID"
+                errorAlert.showError(title!, subTitle: error!, closeButtonTitle: "Ok", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
             }
         }
+    }
+    
+    @IBAction func displayAbout(sender: AnyObject) {
+        
+        let aboutAlert = SCLAlertView()
+        aboutAlert.showNotice("Version 1.0", subTitle: "Mauritius is the Best Holiday destination. Discover more than the island. Where to go? Ask us, Explore the hidden gem!", closeButtonTitle: "Close", duration: 0, colorStyle: 0xFF6654, colorTextButton: 0xFFFFFF)
     }
     
     func displayAlert(title: String, error: String){
@@ -161,6 +173,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        // println("validate calendar: \(testStr)")
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(testStr)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

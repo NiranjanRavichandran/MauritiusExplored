@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if contactNumber.text == "" {
             
-            error = "Please enter your mobile number"
+            error = "Please enter your phone number"
         }else{
         
             var currentUser = PFUser.currentUser()
