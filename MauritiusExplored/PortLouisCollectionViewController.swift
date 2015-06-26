@@ -8,9 +8,14 @@
 
 import UIKit
 import Parse
+import StoreKit
 
-class PortLouisCollectionViewController: UICollectionViewController {
+var isPurchased: Bool = false
+
+class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
+    var product: SKProduct?
+    var productId = "MauritiusExplored26615"
     let reuseIdentifier = "Cell"
     let defaults = NSUserDefaults.standardUserDefaults()
     var currentIndex = [String: Int]()
@@ -19,6 +24,9 @@ class PortLouisCollectionViewController: UICollectionViewController {
     var selectedIndex = NSIndexPath()
     var levelFourDict = [String: String]()
     var currentHeading = String()
+    var paymentView: UIView?
+    var buyNowButton: UIButton = UIButton(frame: CGRectMake(0, 0, 130, 35))
+    var activityRedView: DGActivityIndicatorView?
     
     @IBOutlet var menuButton: UIBarButtonItem!
     
@@ -40,9 +48,123 @@ class PortLouisCollectionViewController: UICollectionViewController {
         collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         //self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "Bg5.jpg"))
         
+        isPurchased = defaults.boolForKey("isPurchased")
         // Do any additional setup after loading the view.
-        loadInitialObjects()
+        if currentIndex["Section"] == 1{
+            if !isPurchased{
+                
+                loadPurchaseView()
+                
+            }else{
+                
+                loadInitialObjects()
+            }
+        }else{
+            loadInitialObjects()
+        }
         
+    }
+    
+    func loadPurchaseView(){
+        self.title = "Purchase Required"
+        paymentView = UIView(frame: UIScreen.mainScreen().bounds)
+        paymentView!.backgroundColor = UIColor.whiteColor()
+        
+        buyNowButton.center = paymentView!.center
+        buyNowButton.center.y = paymentView!.center.y + 20
+        buyNowButton.setBackgroundImage(UIImage(named: "BuyButton.png"), forState: .Normal)
+        buyNowButton.addTarget(self, action: "invokePayment", forControlEvents: UIControlEvents.TouchUpInside)
+        paymentView!.addSubview(buyNowButton)
+        buyNowButton.enabled = false
+        
+        let text: NSString = "Discover more than the island and experience Mauritius."
+        var paymentInfo: UILabel = UILabel(frame: CGRectMake(0, 0 - 20, 320, 40))
+        paymentInfo.font = UIFont(name: "Helvetica Neue", size: 14)
+        paymentInfo.numberOfLines = 3
+        paymentInfo.textAlignment = .Center
+        paymentInfo.center.x = paymentView!.center.x
+        paymentInfo.center.y = (paymentView!.center.y - 30)
+        paymentInfo.text = text as String
+        paymentInfo.textColor = UIColor.grayColor()
+        paymentView!.addSubview(paymentInfo)
+        self.view.addSubview(paymentView!)
+        
+        activityRedView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.redColor(), size:30.0)
+        activityRedView!.frame = CGRectMake(0, 0, 50, 50)
+        activityRedView!.center.x = view.center.x
+        activityRedView?.center.y = view.center.y - 90
+        self.view.addSubview(activityRedView!)
+        activityRedView!.startAnimating()
+        
+        //Get product info
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        if SKPaymentQueue.canMakePayments() {
+            
+            let request = SKProductsRequest(productIdentifiers:
+                NSSet(objects: self.productId) as Set<NSObject>)
+            request.delegate = self
+            request.start()
+            println("purchase is available!")
+            
+        } else {
+            
+            SCLAlertView().showWarning("Oops!", subTitle:"Please enable In App Purchase in Settings and try again", closeButtonTitle:"OK")
+        }
+
+    }
+    
+    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+        println("Getting product details")
+        var products = response.products
+        if(products.count != 0){
+            product = products[0] as? SKProduct
+            SCLAlertView().showNotice(product!.localizedTitle, subTitle:product!.localizedDescription, closeButtonTitle:"OK")
+            buyNowButton.enabled = true
+        }else{
+            SCLAlertView().showError("Error", subTitle:"Product not found.", closeButtonTitle:"OK")
+        }
+        
+        products = response.invalidProductIdentifiers
+        
+        for product in products
+        {
+            println("Product not found: \(product)")
+        }
+        
+        activityRedView?.stopAnimating()
+    }
+    
+    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+        
+        println("Invoking payment method***")
+        buyNowButton.enabled = false
+        for transaction in transactions as! [SKPaymentTransaction] {
+            
+            switch transaction.transactionState {
+                
+            case SKPaymentTransactionState.Purchased:
+                isPurchased = true
+                SCLAlertView().showSuccess("Success", subTitle:"Loading newly purchased content...", closeButtonTitle:"OK")
+                loadInitialObjects()
+                self.paymentView?.removeFromSuperview()
+                defaults.setBool(true, forKey: "isPurchased")
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                
+            case SKPaymentTransactionState.Failed:
+                SCLAlertView().showError("Error", subTitle:"Transaction aborted. Please try again.", closeButtonTitle:"OK")
+                buyNowButton.enabled = true
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    func invokePayment(){
+        println("Payment button!")
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.defaultQueue().addPayment(payment)
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,13 +175,12 @@ class PortLouisCollectionViewController: UICollectionViewController {
     func loadInitialObjects(){
         
         var levelTwoDict = defaults.objectForKey("LevelTwoDict") as! [String: String]
-        println(levelTwoDict)
         var currentParent = String()
         //Custom Activity Indicator
-        let activityView : DGActivityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
+        let activityView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
         activityView.frame = CGRectMake(0, 0, 50, 50)
         activityView.center = view.center
-        self.view.addSubview(activityView)
+        self.view.addSubview(activityView!)
         activityView.startAnimating()
         
         switch(currentIndex["Section"]!){
@@ -77,7 +198,7 @@ class PortLouisCollectionViewController: UICollectionViewController {
             }else if currentIndex["Row"] == 9 || currentIndex["Row"] == 5{
                 currentHeading = "Airport"
                 currentParent = levelTwoDict[currentHeading]!
-                println("Parent: \(currentParent)")
+                //println("Parent: \(currentParent)")
             }
         case 1:
             if currentIndex["Row"] == 1{
@@ -188,24 +309,24 @@ class PortLouisCollectionViewController: UICollectionViewController {
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         
         var headerString = NSString()
-    
-            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
-            if lFourIds.count > 1{
-                
-                headerView.pHeaderText.text = levelFourDict[lFourIds[indexPath.section]]
-                headerString = levelFourDict[lFourIds[indexPath.section]]!
-            }else{
-                headerView.pHeaderText.text = currentHeading
-                headerString = currentHeading
-            }
+        
+        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
+        if lFourIds.count > 1{
             
-            var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName: headerView.pHeaderText.font])
-            headerView.frame.size.width = newSize.width + 20
-            headerView.layer.cornerRadius = 15
-            headerView.center.x = collectionView.center.x
-            headerView.alpha = 0.7
-            return headerView
-     
+            headerView.pHeaderText.text = levelFourDict[lFourIds[indexPath.section]]
+            headerString = levelFourDict[lFourIds[indexPath.section]]!
+        }else{
+            headerView.pHeaderText.text = currentHeading
+            headerString = currentHeading
+        }
+        
+        var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName: headerView.pHeaderText.font])
+        headerView.frame.size.width = newSize.width + 20
+        headerView.layer.cornerRadius = 15
+        headerView.center.x = collectionView.center.x
+        headerView.alpha = 0.7
+        return headerView
+        
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -265,7 +386,8 @@ class PortLouisCollectionViewController: UICollectionViewController {
         self.view.center = (self.view.superview?.center)!
         controller.didMoveToParentViewController(self)
     }
-
+    
+    
     // MARK: UICollectionViewDelegate
     
     /*

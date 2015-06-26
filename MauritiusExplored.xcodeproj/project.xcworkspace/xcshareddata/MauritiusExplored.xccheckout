@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>28A97D72-99FF-471D-B607-0E8FC48FF3F6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>MauritiusExplored</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>04BD8CB511BF10250A2503EE63B875742E99738D</key>
 		<string>https://github.com/NiranjanRavichandran/MauritiusExplored.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MauritiusExplored.xcodeproj</string>
+	<string>MauritiusExplored.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>04BD8CB511BF10250A2503EE63B875742E99738D</key>

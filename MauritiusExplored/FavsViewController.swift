@@ -8,8 +8,9 @@
 
 import UIKit
 import Parse
+import StoreKit
 
-class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
     @IBOutlet var infoText: UILabel!
     @IBOutlet var menuButton: UIBarButtonItem!
@@ -20,6 +21,12 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     var currentIndex = Int()
     var currenSection = Int()
     var imageView = UIImageView()
+    var paymentView: UIView?
+    var buyNowButton: UIButton = UIButton(frame: CGRectMake(0, 0, 130, 35))
+    var activityRedView: DGActivityIndicatorView?
+    var product: SKProduct?
+    var productId = "MauritiusExplored26615"
+    var activityView : DGActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +36,11 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         //Custom Activity Indicator
-        let activityView : DGActivityIndicatorView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
-        activityView.frame = CGRectMake(0, 0, 50, 50)
-        activityView.center = view.center
-        self.view.addSubview(activityView)
-        activityView.startAnimating()
+        activityView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.grayColor(), size:30.0)
+        activityView?.frame = CGRectMake(0, 0, 50, 50)
+        activityView?.center = view.center
+        self.view.addSubview(activityView!)
+        activityView?.startAnimating()
         
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
@@ -59,33 +66,143 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
             collectionView?.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: "Cell")
             collectionView?.backgroundColor = UIColor.clearColor()
             self.view.addSubview(collectionView!)
-            activityView.stopAnimating()
+            activityView?.stopAnimating()
             
         }else {
-            self.title = "Fly to Mauritius"
-            imageView.frame = UIScreen.mainScreen().bounds
-            imageView.center = self.view.center
-            imageView.contentMode = UIViewContentMode.ScaleAspectFit
-            var query = PFQuery(className: "Beach")
-            query.getObjectInBackgroundWithId("bFNiCTtXts", block: { (imageObject, imageError) -> Void in
-                
-                if imageError == nil{
-                    let imageDetails: PhotoDetails = PhotoDetails(imageObjects: imageObject!)
-                    imageDetails.largeImage.getDataInBackgroundWithBlock({ (imageData, dataError) -> Void in
-                        
-                        if dataError == nil{
-                            self.imageView.image = UIImage(data: imageData!)
-                            activityView.stopAnimating()
-                        }
-                    })
-                }
-            })
-            self.view.addSubview(imageView)
             
+            if defaults.boolForKey("isPurchased"){
+               
+                loadFlyToMauritius()
+                
+            }else{
+                
+                activityView?.stopAnimating()
+                self.title = "Purchase Required"
+                paymentView = UIView(frame: UIScreen.mainScreen().bounds)
+                paymentView!.backgroundColor = UIColor.whiteColor()
+                
+                buyNowButton.center = paymentView!.center
+                buyNowButton.center.y = paymentView!.center.y + 20
+                buyNowButton.setBackgroundImage(UIImage(named: "BuyButton.png"), forState: .Normal)
+                buyNowButton.addTarget(self, action: "invokePayment", forControlEvents: UIControlEvents.TouchUpInside)
+                paymentView!.addSubview(buyNowButton)
+                buyNowButton.enabled = false
+                
+                let text: NSString = "Discover more than the island and experience Mauritius."
+                var paymentInfo: UILabel = UILabel(frame: CGRectMake(0, 0 - 20, 320, 40))
+                paymentInfo.font = UIFont(name: "Helvetica Neue", size: 14)
+                paymentInfo.numberOfLines = 3
+                paymentInfo.textAlignment = .Center
+                paymentInfo.center.x = paymentView!.center.x
+                paymentInfo.center.y = (paymentView!.center.y - 30)
+                paymentInfo.text = text as String
+                paymentInfo.textColor = UIColor.grayColor()
+                paymentView!.addSubview(paymentInfo)
+                self.view.addSubview(paymentView!)
+                
+                activityRedView = DGActivityIndicatorView(type: DGActivityIndicatorAnimationType.DoubleBounce, tintColor: UIColor.redColor(), size:30.0)
+                activityRedView!.frame = CGRectMake(0, 0, 50, 50)
+                activityRedView!.center.x = view.center.x
+                activityRedView?.center.y = view.center.y - 90
+                self.view.addSubview(activityRedView!)
+                activityRedView!.startAnimating()
+                
+                //Get product info
+                SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+                if SKPaymentQueue.canMakePayments() {
+                    
+                    let request = SKProductsRequest(productIdentifiers:
+                        NSSet(objects: self.productId) as Set<NSObject>)
+                    request.delegate = self
+                    request.start()
+                    println("purchase is available!")
+                    
+                } else {
+                    
+                    SCLAlertView().showWarning("Oops!", subTitle:"Please enable In App Purchase in Settings and try again", closeButtonTitle:"OK")
+                }
+            }
+        }
+    }
+    
+    func loadFlyToMauritius(){
+       
+        self.title = "Fly to Mauritius"
+        imageView.frame = UIScreen.mainScreen().bounds
+        imageView.center = self.view.center
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        var query = PFQuery(className: "Beach")
+        query.getObjectInBackgroundWithId("bFNiCTtXts", block: { (imageObject, imageError) -> Void in
+            
+            if imageError == nil{
+                let imageDetails: PhotoDetails = PhotoDetails(imageObjects: imageObject!)
+                imageDetails.largeImage.getDataInBackgroundWithBlock({ (imageData, dataError) -> Void in
+                    
+                    if dataError == nil{
+                        self.imageView.image = UIImage(data: imageData!)
+                        self.activityView?.stopAnimating()
+                    }
+                })
+            }
+        })
+        self.view.addSubview(imageView)
+    }
+    
+    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+        println("Getting product details")
+        var products = response.products
+        if(products.count != 0){
+            product = products[0] as? SKProduct
+            SCLAlertView().showNotice(product!.localizedTitle, subTitle:product!.localizedDescription, closeButtonTitle:"OK")
+            buyNowButton.enabled = true
+        }else{
+            SCLAlertView().showError("Error", subTitle:"Product not found.", closeButtonTitle:"OK")
         }
         
+        products = response.invalidProductIdentifiers
+        
+        for product in products
+        {
+            println("Product not found: \(product)")
+        }
+        
+        activityRedView?.stopAnimating()
     }
+    
+    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+        
+        println("Invoking payment method***")
+        buyNowButton.enabled = false
 
+        for transaction in transactions as! [SKPaymentTransaction] {
+            
+            switch transaction.transactionState {
+                
+            case SKPaymentTransactionState.Purchased:
+                isPurchased = true
+                SCLAlertView().showSuccess("Success", subTitle:"Loading newly purchased content...", closeButtonTitle:"OK")
+                loadFlyToMauritius()
+                self.paymentView?.removeFromSuperview()
+                defaults.setBool(true, forKey: "isPurchased")
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                
+            case SKPaymentTransactionState.Failed:
+                SCLAlertView().showError("Error", subTitle:"Transaction aborted. Please try again.", closeButtonTitle:"OK")
+                buyNowButton.enabled = true
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                
+            default:
+                break
+            }
+        }
+    }
+    
+    func invokePayment(){
+        println("Payment button!")
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.defaultQueue().addPayment(payment)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -140,14 +257,14 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         
         currentIndex = indexPath.row
         performSegueWithIdentifier("largeFav", sender: self)
-    
+        
     }
-
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         var imageVC: ImageViewController = segue.destinationViewController as! ImageViewController
         imageVC.imageDetails = favImages[currentIndex]
         
     }
-
+    
 }

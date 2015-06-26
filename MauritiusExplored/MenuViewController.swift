@@ -117,7 +117,6 @@ class MenuViewController: StaticDataTableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //println(indexPath.row)
         previousSelectedCell.userInteractionEnabled = true
         var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         selectedIndex = indexPath

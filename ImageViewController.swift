@@ -13,9 +13,9 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var largeImageView: UIImageView!
-    @IBOutlet var doneButton: UIButton!
     @IBOutlet var imageDescription: UILabel!
     @IBOutlet var favButton: UIButton!
+    @IBOutlet var doneButton: UIButton!
     @IBOutlet var directionsButton: UIButton!
     
     let defaults = NSUserDefaults.standardUserDefaults()
