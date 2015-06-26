@@ -21,7 +21,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var textFields: [TextField]!
     var editEnabled = false
     let alert = SCLAlertView()
-    let errorAlert = SCLAlertView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +51,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 
                 for item in self.editButtons{
                     item.alpha = 1
+                    item.enabled = true
                 }
                 self.editEnabled = true
                 
@@ -110,27 +110,60 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveInformation(sender: AnyObject) {
-        var error: String?
-        var title: String?
+        
+        var isChanged: Bool = false
         var currentUser = PFUser.currentUser()
         
-        if email.text == "" || email.text == nil{
-            title = "Oops!"
-            error = "Please enter your email ID"
-            errorAlert.showError(title!, subTitle: error!, closeButtonTitle: "Okay", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
+        if !isValidEmail(email.text){
+            
+            SCLAlertView().showError("Oops!", subTitle:"Please enter a valid email.", closeButtonTitle:"OK")
         }else{
-            if isValidEmail(email.text){
+            for item in editButtons{
+                item.enabled = false
+            }
+            if email.text != defaults.objectForKey("UserMal") as? String{
+                currentUser?.username = email.text
                 currentUser?.email = email.text
+                isChanged = true
+            }
+            
+            if phone.text == "" && firstName.text == "" {
+                SCLAlertView().showError("Alert", subTitle:"Please enter name or phone number", closeButtonTitle:"Ok")
+                for item in editButtons{
+                    item.enabled = true
+                }
+            }else if ((currentUser?.valueForKey("Name") as! String == firstName.text) && (currentUser?.valueForKey("Phone") as! String == phone.text)){
+                
+                SCLAlertView().showNotice("Alert", subTitle:"Nothing was changed!", closeButtonTitle:"OK")
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    
+                    for item in self.editButtons{
+                        item.enabled = true
+                        item.alpha = 0
+                    }
+                    self.editEnabled = false
+                })
+            }else{
+                
                 currentUser?.setValue(firstName.text, forKey: "Name")
                 currentUser?.setValue(phone.text, forKey: "Phone")
                 currentUser?.saveInBackgroundWithBlock({ (success, updateError) -> Void in
                     
                     if updateError == nil{
-                        title = "Success!"
-                        error = "Your info has be updated!"
-                        self.alert.showSuccess(title!, subTitle: error!, closeButtonTitle: "Okay", duration: 0, colorStyle: 0x22B573, colorTextButton: 0xFFFFFF)
-                        defaults.setObject(self.email.text, forKey: "UserMail")
+                        SCLAlertView().showSuccess("Success", subTitle:"Your info has been updated.", closeButtonTitle:"OK")
                         
+                        PFUser.logInWithUsernameInBackground(self.email.text, password: "password", block: { (userDetails, loginError) -> Void in
+                            if loginError == nil{
+                                if isChanged{
+                                    self.updateFavsTable()
+                                }
+                            }else{
+                                if updateError!.code == 100{
+                                    
+                                    SCLAlertView().showError("Oops!", subTitle:"Please check your internet connection.", closeButtonTitle:"OK")
+                                }
+                            }
+                        })
                         //Hiding and disabling textfields....
                         for item in self.textFields{
                             item.userInteractionEnabled = false
@@ -138,24 +171,45 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                         UIView.animateWithDuration(0.3, animations: { () -> Void in
                             
                             for item in self.editButtons{
+                                item.enabled = true
                                 item.alpha = 0
                             }
                             self.editEnabled = false
                         })
                     }else{
                         if updateError!.code == 100{
-                            title = "Oops!"
-                            error = "Please check your internet connection. Re-attempting to save."
-                            self.errorAlert.showError(title!, subTitle: error!, closeButtonTitle: "Done", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
+                            SCLAlertView().showError("Oops!", subTitle:"Please check your internet connection.", closeButtonTitle:"OK")
                         }
                     }
                 })
-            }else{
-                
-                title = "Oops!"
-                error = "Please enter valid email ID"
-                errorAlert.showError(title!, subTitle: error!, closeButtonTitle: "Ok", duration: 0, colorStyle: 0xC1272D, colorTextButton: 0xFFFFFF)
             }
+        }
+    }
+    
+    func updateFavsTable(){
+        
+        if let favs = defaults.objectForKey("Favourites") as? [String]{
+            var favUpdateQuery = PFQuery(className: "Favourites")
+            favUpdateQuery.whereKey("UserId", equalTo: defaults.objectForKey("UserMail") as! String)
+            favUpdateQuery.getFirstObjectInBackgroundWithBlock({ (favObject, error) -> Void in
+                
+                if error == nil{
+                    favObject?.setValue(self.email.text, forKey:"UserId")
+                    favObject?.saveInBackgroundWithBlock{ (updateSuccess: Bool, error: NSError?) -> Void in
+                        
+                        if updateSuccess == true{
+                            println("Email updated!")
+                            defaults.setObject(self.email.text, forKey: "UserMail")
+                        }else{
+                            if error!.code == 100{
+                                
+                                SCLAlertView().showError("Oops!", subTitle:"Please check your internet connection.", closeButtonTitle:"OK")
+                            }
+                        }
+                    }
+                }
+            })
+            
         }
     }
     
