@@ -121,7 +121,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             for item in editButtons{
                 item.enabled = false
             }
-            if email.text != defaults.objectForKey("UserMal") as? String{
+            if email.text != defaults.objectForKey("UserMail") as? String{
                 currentUser?.username = email.text
                 currentUser?.email = email.text
                 isChanged = true
