@@ -121,30 +121,26 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             for item in editButtons{
                 item.enabled = false
             }
-            if email.text != defaults.objectForKey("UserMail") as? String{
-                currentUser?.username = email.text
-                currentUser?.email = email.text
-                isChanged = true
-            }
             
-            if phone.text == "" && firstName.text == "" {
-                SCLAlertView().showError("Alert", subTitle:"Please enter name or phone number", closeButtonTitle:"Ok")
-                for item in editButtons{
-                    item.enabled = true
-                }
-            }else if ((currentUser?.valueForKey("Name") as! String == firstName.text) && (currentUser?.valueForKey("Phone") as! String == phone.text)){
+            if ((firstName.text == "") && (phone.text == "") && (email.text == currentUser?.email)){
                 
                 SCLAlertView().showNotice("Alert", subTitle:"Nothing was changed!", closeButtonTitle:"OK")
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     
                     for item in self.editButtons{
-                        item.enabled = true
                         item.alpha = 0
+                    }
+                    for item in self.textFields{
+                        item.userInteractionEnabled = false
                     }
                     self.editEnabled = false
                 })
             }else{
-                
+                if email.text != defaults.objectForKey("UserMail") as? String{
+                    currentUser?.username = email.text
+                    currentUser?.email = email.text
+                    isChanged = true
+                }
                 currentUser?.setValue(firstName.text, forKey: "Name")
                 currentUser?.setValue(phone.text, forKey: "Phone")
                 currentUser?.saveInBackgroundWithBlock({ (success, updateError) -> Void in

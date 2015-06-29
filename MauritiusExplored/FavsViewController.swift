@@ -153,7 +153,6 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         var products = response.products
         if(products.count != 0){
             product = products[0] as? SKProduct
-            SCLAlertView().showNotice(product!.localizedTitle, subTitle:product!.localizedDescription, closeButtonTitle:"OK")
             buyNowButton.enabled = true
         }else{
             SCLAlertView().showError("Error", subTitle:"Product not found.", closeButtonTitle:"OK")
@@ -198,9 +197,13 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     }
     
     func invokePayment(){
-        println("Payment button!")
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.defaultQueue().addPayment(payment)
+        let noticeAlert = SCLAlertView()
+        noticeAlert.addButton("Buy", action: { () -> Void in
+            let payment = SKPayment(product: self.product)
+            SKPaymentQueue.defaultQueue().addPayment(payment)
+            
+        })
+        noticeAlert.showNotice(product!.localizedTitle, subTitle:product!.localizedDescription, closeButtonTitle:"Cancel")
     }
     
     override func didReceiveMemoryWarning() {
