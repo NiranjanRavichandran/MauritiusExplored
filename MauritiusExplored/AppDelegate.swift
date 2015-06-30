@@ -142,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if self.defaults.objectForKey("UserMail")  == nil {
             
-            println("First Launch")
+            //println("First Launch")
             self.creatingIntialView("SignUpView")
             
         }else{
@@ -150,12 +150,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let email = self.defaults.objectForKey("UserMail") as! String
             if email == "" {
                 
-                println("Not First Launch")
+                //println("Not First Launch")
                 self.creatingIntialView("SignUpView")
                 
             }else{
                 
-                println("Not first Launch")
+                //println("Not first Launch")
                 self.creatingIntialView("MenuView")
                 
                 let getFavQuery = PFQuery(className: "Favourites")
@@ -182,7 +182,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        println("Entering Background")
     }
     
     func applicationWillEnterForeground(application: UIApplication) {

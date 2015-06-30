@@ -32,7 +32,7 @@ class WestCollectionViewController: UICollectionViewController {
         
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         //self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "splash-screen1.png"))
         
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -60,7 +60,7 @@ class WestCollectionViewController: UICollectionViewController {
             currentBeachDirection = "East"
         }
         self.title = "Beaches in \(currentBeachDirection!)"
-        println("Loading \(currentBeachDirection) Objects")
+        //println("Loading \(currentBeachDirection) Objects")
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
@@ -70,11 +70,11 @@ class WestCollectionViewController: UICollectionViewController {
                     
                     if error == nil{
                         
-                        println("Logged In")
+                        //println("Logged In")
                         self.loadingObjects()
                         activityView.stopAnimating()
                     }else{
-                        println("Login failed!")
+                        //println("Login failed!")
                         if error?.code == 100{
                             
                             self.displayErrorView()
@@ -82,7 +82,7 @@ class WestCollectionViewController: UICollectionViewController {
                     }
                 }
             }else{
-                println("Already Logged In!")
+                //println("Already Logged In!")
                 self.loadingObjects()
                 activityView.stopAnimating()
             }
@@ -179,10 +179,10 @@ class WestCollectionViewController: UICollectionViewController {
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "HeaderView", forIndexPath: indexPath) as! CollectionViewHeader
             var headerString = westBeaches[indexPath.section] as NSString
             var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName:headerView.headerText.font])
-            headerView.frame.size.width = newSize.width + 20
-            headerView.layer.cornerRadius = 15
+//            headerView.frame.size.width = newSize.width + 20
+//            headerView.layer.cornerRadius = 15
             headerView.headerText.text = westBeaches[indexPath.section]
-            headerView.center.x = collectionView.center.x
+//            headerView.center.x = collectionView.center.x
             headerView.alpha = 0.7
             return headerView
         
@@ -243,21 +243,6 @@ class WestCollectionViewController: UICollectionViewController {
             return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        
-        if toInterfaceOrientation.rawValue == UIInterfaceOrientation.LandscapeRight.rawValue{
-            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
-                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "lanscape.jpg"))
-            })
-        }else{
-            UICollectionView.animateWithDuration(0.5, animations: { () -> Void in
-                
-                self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "GirlPortarit.jpg"))
-                
-            })
-        }
-        
-    }
     
     func displayErrorView(){
         

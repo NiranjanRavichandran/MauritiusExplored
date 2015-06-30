@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wmv-7Q-iSe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lJQ-qn-wkW">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -1667,6 +1667,64 @@
             </objects>
             <point key="canvasLocation" x="1823" y="1060"/>
         </scene>
+        <!--Initial View-->
+        <scene sceneID="dCl-uB-qij">
+            <objects>
+                <viewController title="Initial View" id="lJQ-qn-wkW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ayI-B9-m7x"/>
+                        <viewControllerLayoutGuide type="bottom" id="Isn-q4-HHO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xC1-gW-xfJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-screen1" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-Kz-Dzp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyrigt (c) 2015 Mauritius Explored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgf-IS-IgD">
+                                <rect key="frame" x="16" y="512" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xnV-gv-UAW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designed and Developed by Adavers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCe-Gl-weA">
+                                <rect key="frame" x="16" y="533" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3M0-ch-oIc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Isn-q4-HHO" firstAttribute="top" secondItem="1Sh-Kz-Dzp" secondAttribute="bottom" id="056-Qx-2SV"/>
+                            <constraint firstItem="QCe-Gl-weA" firstAttribute="trailing" secondItem="xC1-gW-xfJ" secondAttribute="trailingMargin" id="0EN-Jn-1lr"/>
+                            <constraint firstItem="Isn-q4-HHO" firstAttribute="top" secondItem="QCe-Gl-weA" secondAttribute="bottom" constant="14" id="6p1-cf-vN9"/>
+                            <constraint firstItem="1Sh-Kz-Dzp" firstAttribute="top" secondItem="xC1-gW-xfJ" secondAttribute="topMargin" id="FNY-pS-Kk3"/>
+                            <constraint firstAttribute="centerX" secondItem="QCe-Gl-weA" secondAttribute="centerX" id="Fld-Ic-y6T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Sh-Kz-Dzp" secondAttribute="trailing" constant="-16" id="U7p-oh-WWu"/>
+                            <constraint firstItem="Jgf-IS-IgD" firstAttribute="leading" secondItem="xC1-gW-xfJ" secondAttribute="leadingMargin" id="agG-Gr-uSd"/>
+                            <constraint firstItem="QCe-Gl-weA" firstAttribute="leading" secondItem="xC1-gW-xfJ" secondAttribute="leadingMargin" id="aiE-Rt-i6Q"/>
+                            <constraint firstItem="QCe-Gl-weA" firstAttribute="top" secondItem="Jgf-IS-IgD" secondAttribute="bottom" id="eRv-a2-736"/>
+                            <constraint firstAttribute="centerX" secondItem="1Sh-Kz-Dzp" secondAttribute="centerX" id="pG5-DN-h8A"/>
+                            <constraint firstItem="Jgf-IS-IgD" firstAttribute="trailing" secondItem="xC1-gW-xfJ" secondAttribute="trailingMargin" id="qDp-ge-zeG"/>
+                            <constraint firstItem="1Sh-Kz-Dzp" firstAttribute="leading" secondItem="xC1-gW-xfJ" secondAttribute="leadingMargin" constant="-16" id="qEh-tl-QIv"/>
+                            <constraint firstAttribute="centerY" secondItem="1Sh-Kz-Dzp" secondAttribute="centerY" id="w1i-ge-ud5"/>
+                            <constraint firstAttribute="centerX" secondItem="Jgf-IS-IgD" secondAttribute="centerX" id="wCk-LX-abQ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acy-VA-jMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="1749"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="OG2-lW-ue9">
             <objects>
@@ -1720,6 +1778,7 @@
         <image name="port-louis" width="100" height="100"/>
         <image name="sad" width="100" height="100"/>
         <image name="settings" width="100" height="100"/>
+        <image name="splash-screen1" width="640" height="1136"/>
         <image name="surfing" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>

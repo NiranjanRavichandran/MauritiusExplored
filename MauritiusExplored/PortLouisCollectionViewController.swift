@@ -28,6 +28,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     var paymentView: UIView?
     var buyNowButton: UIButton = UIButton(frame: CGRectMake(0, 0, 130, 35))
     var activityRedView: DGActivityIndicatorView?
+    var isCenter: Bool = false
     
     @IBOutlet var menuButton: UIBarButtonItem!
     
@@ -46,7 +47,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
         //self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "Bg5.jpg"))
         
         isPurchased = defaults.boolForKey("isPurchased")
@@ -105,7 +106,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
                 NSSet(objects: self.productId) as Set<NSObject>)
             request.delegate = self
             request.start()
-            println("purchase is available!")
+            //println("purchase is available!")
             
         } else {
             
@@ -115,7 +116,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     }
     
     func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
-        println("Getting product details")
+        //println("Getting product details")
         var products = response.products
         if(products.count != 0){
             product = products[0] as? SKProduct
@@ -128,7 +129,8 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         
         for product in products
         {
-            println("Product not found: \(product)")
+            //println("Product not found: \(product)")
+            SCLAlertView().showError("Product not found", subTitle:"\(product)", closeButtonTitle:"OK")
         }
         
         activityRedView?.stopAnimating()
@@ -136,7 +138,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     
     func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
         
-        println("Invoking payment method***")
+        //println("Invoking payment method***")
         buyNowButton.enabled = false
         for transaction in transactions as! [SKPaymentTransaction] {
             
@@ -287,6 +289,9 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let items = sortedImages[lFourIds[section]]
+        if items?.count < 2{
+            isCenter = true
+        }
         return items!.count
     }
     
@@ -327,9 +332,9 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         }
         
         var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName: headerView.pHeaderText.font])
-        headerView.frame.size.width = newSize.width + 20
-        headerView.layer.cornerRadius = 15
-        headerView.center.x = collectionView.center.x
+//        headerView.frame.size.width = newSize.width + 20
+//        headerView.layer.cornerRadius = 15
+//        headerView.center.x = collectionView.center.x
         headerView.alpha = 0.7
         return headerView
         
@@ -379,8 +384,12 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-            
-            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            var sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            if isCenter{
+                let size = UIScreen.mainScreen().bounds.width / 3
+                sectionInset = UIEdgeInsets(top: 5, left: size, bottom: 5, right: size)
+            }
+            return sectionInset
     }
     
     func displayErrorView(){
