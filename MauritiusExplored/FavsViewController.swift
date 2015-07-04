@@ -41,7 +41,6 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
         activityView?.center = view.center
         self.view.addSubview(activityView!)
         activityView?.startAnimating()
-        
         if self.revealViewController() != nil{
             menuButton.target = self.revealViewController()
             menuButton.action = "revealToggle:"
@@ -115,7 +114,7 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
                         NSSet(objects: self.productId) as Set<NSObject>)
                     request.delegate = self
                     request.start()
-                    println("purchase is available!")
+                    //println("purchase is available!")
                     
                 } else {
                     
@@ -149,7 +148,7 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     }
     
     func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
-        println("Getting product details")
+        //println("Getting product details")
         var products = response.products
         if(products.count != 0){
             product = products[0] as? SKProduct
@@ -170,7 +169,7 @@ class FavsViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
         
-        println("Invoking payment method***")
+        //println("Invoking payment method***")
         buyNowButton.enabled = false
 
         for transaction in transactions as! [SKPaymentTransaction] {

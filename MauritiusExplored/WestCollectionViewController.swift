@@ -32,7 +32,7 @@ class WestCollectionViewController: UICollectionViewController {
         
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 1, bottom: 0, right: 1)
         //self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "splash-screen1.png"))
         
         //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -78,8 +78,7 @@ class WestCollectionViewController: UICollectionViewController {
                         if error?.code == 100{
                             
                             self.displayErrorView()
-                        }
-                    }
+                        }                    }
                 }
             }else{
                 //println("Already Logged In!")
@@ -180,7 +179,7 @@ class WestCollectionViewController: UICollectionViewController {
             var headerString = westBeaches[indexPath.section] as NSString
             var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName:headerView.headerText.font])
 //            headerView.frame.size.width = newSize.width + 20
-//            headerView.layer.cornerRadius = 15
+            headerView.layer.cornerRadius = 2
             headerView.headerText.text = westBeaches[indexPath.section]
 //            headerView.center.x = collectionView.center.x
             headerView.alpha = 0.7
@@ -240,7 +239,7 @@ class WestCollectionViewController: UICollectionViewController {
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
             
-            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            return UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
     }
     
     

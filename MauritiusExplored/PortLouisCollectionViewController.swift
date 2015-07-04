@@ -47,7 +47,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         
         // Register cell classes
         self.collectionView!.registerClass(PhotoViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 5, left: 1, bottom: 0, right: 1)
         //self.collectionView?.backgroundView = UIImageView(image: UIImage(named: "Bg5.jpg"))
         
         isPurchased = defaults.boolForKey("isPurchased")
@@ -291,6 +291,8 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         let items = sortedImages[lFourIds[section]]
         if items?.count < 2{
             isCenter = true
+        }else{
+            isCenter = false
         }
         return items!.count
     }
@@ -333,7 +335,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         
         var newSize: CGSize = headerString.sizeWithAttributes([NSFontAttributeName: headerView.pHeaderText.font])
 //        headerView.frame.size.width = newSize.width + 20
-//        headerView.layer.cornerRadius = 15
+        headerView.layer.cornerRadius = 2
 //        headerView.center.x = collectionView.center.x
         headerView.alpha = 0.7
         return headerView
@@ -384,7 +386,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-            var sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            var sectionInset = UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
             if isCenter{
                 let size = UIScreen.mainScreen().bounds.width / 3
                 sectionInset = UIEdgeInsets(top: 5, left: size, bottom: 5, right: size)

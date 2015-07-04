@@ -136,7 +136,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     self.editEnabled = false
                 })
             }else{
-                if email.text != defaults.objectForKey("UserMail") as? String{
+                if ((email.text != defaults.objectForKey("UserMail") as? String) && checkForUser()){
                     currentUser?.username = email.text
                     currentUser?.email = email.text
                     isChanged = true
@@ -146,7 +146,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 currentUser?.saveInBackgroundWithBlock({ (success, updateError) -> Void in
                     
                     if updateError == nil{
-                        SCLAlertView().showSuccess("Success", subTitle:"Your info has been updated.", closeButtonTitle:"OK")
+                        SCLAlertView().showSuccess("Success", subTitle:"Your info has been saved.", closeButtonTitle:"OK")
                         
                         PFUser.logInWithUsernameInBackground(self.email.text, password: "password", block: { (userDetails, loginError) -> Void in
                             if loginError == nil{
@@ -154,7 +154,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                                     self.updateFavsTable()
                                 }
                             }else{
-                                if updateError!.code == 100{
+                                if loginError!.code == 100{
                                     
                                     SCLAlertView().showError("Oops!", subTitle:"Please check your internet connection.", closeButtonTitle:"OK")
                                 }
@@ -175,6 +175,19 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                     }else{
                         if updateError!.code == 100{
                             SCLAlertView().showError("Oops!", subTitle:"Please check your internet connection.", closeButtonTitle:"OK")
+                        }else if updateError!.code == 202{
+                            SCLAlertView().showNotice("Alert", subTitle:"This email already exists and your info is overwritten!", closeButtonTitle:"Dismiss")
+                            for item in self.textFields{
+                                item.userInteractionEnabled = false
+                            }
+                            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                                
+                                for item in self.editButtons{
+                                    item.enabled = true
+                                    item.alpha = 0
+                                }
+                                self.editEnabled = false
+                            })
                         }
                     }
                 })
@@ -182,8 +195,22 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func checkForUser() -> Bool{
+        println("Checking user")
+        var userExists = true
+        let checkUser = PFQuery(className: "_User")
+        checkUser.whereKey("username", equalTo: email.text)
+        checkUser.getFirstObjectInBackgroundWithBlock { (userObject, userError) -> Void in
+            
+            if userObject != nil{
+                println("inside")
+                userExists = false
+            }
+        }
+        return userExists
+    }
+    
     func updateFavsTable(){
-        
         if let favs = defaults.objectForKey("Favourites") as? [String]{
             var favUpdateQuery = PFQuery(className: "Favourites")
             favUpdateQuery.whereKey("UserId", equalTo: defaults.objectForKey("UserMail") as! String)
