@@ -52,7 +52,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         
         isPurchased = defaults.boolForKey("isPurchased")
         // Do any additional setup after loading the view.
-        if currentIndex["Section"] == 1{
+        if currentIndex["Section"] == 2{
             if !isPurchased{
                 
                 loadPurchaseView()
@@ -257,7 +257,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
                     }
                     if self.sortedImages[item.objectForKey("LinkId") as! String] == nil{
                         let photoObject = PhotoDetails(imageObjects: item)
-                        var photoDtlsArray: [PhotoDetails] = [photoObject]
+                        let photoDtlsArray: [PhotoDetails] = [photoObject]
                         self.sortedImages[item.objectForKey("LinkId") as! String] = photoDtlsArray
                     }else{
                         var photoDtlsArray: [PhotoDetails] = self.sortedImages[item.objectForKey("LinkId") as! String]!
@@ -311,7 +311,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
                     cell.cellImageView.image = UIImage(data: imageData!)
                 }else{
                     
-                    println("Error fetching thumbnail: \(dataError)")
+                    print("Error fetching thumbnail: \(dataError)")
                 }
             })
             
@@ -350,7 +350,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var imageVC: ImageViewController = segue.destinationViewController as! ImageViewController
+        let imageVC: ImageViewController = segue.destinationViewController as! ImageViewController
         let imageDetailsArray: [PhotoDetails] = sortedImages[lFourIds[selectedIndex.section]]!
         imageVC.imageDetails = imageDetailsArray[selectedIndex.row]
     }
@@ -359,7 +359,7 @@ class PortLouisCollectionViewController: UICollectionViewController, SKPaymentTr
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             
-            var screenWidth = CGRectGetWidth(collectionView.bounds)
+            let screenWidth = CGRectGetWidth(collectionView.bounds)
             var cellWidth = 50
             if screenWidth == 320{
                 cellWidth = 75

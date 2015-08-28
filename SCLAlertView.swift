@@ -190,7 +190,7 @@ public class SCLAlertView: UIViewController {
         }
     }
     
-    override public func touchesEnded(touches:Set<NSObject>, withEvent event:UIEvent) {
+     public override func touchesEnded(touches:Set<NSObject>, withEvent event:UIEvent) {
         if event.touchesForView(view)?.count > 0 {
             view.endEditing(true)
         }

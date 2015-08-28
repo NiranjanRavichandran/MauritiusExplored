@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lJQ-qn-wkW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lJQ-qn-wkW">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -111,20 +111,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80509650109999997" blue="0.14841405830000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="TvV-Od-oUp" secondAttribute="centerY" id="1re-02-rvW"/>
                             <constraint firstItem="Lox-f0-hOd" firstAttribute="top" secondItem="b7Y-2E-aFF" secondAttribute="bottom" constant="21" id="4qu-hk-s4F"/>
                             <constraint firstItem="TvV-Od-oUp" firstAttribute="leading" secondItem="DSM-8I-RjL" secondAttribute="leadingMargin" constant="-16" id="7qV-Bi-NFp"/>
                             <constraint firstAttribute="centerX" secondItem="7OG-0D-Mnm" secondAttribute="centerX" id="GMi-rK-zbj"/>
                             <constraint firstAttribute="centerX" secondItem="TvV-Od-oUp" secondAttribute="centerX" id="K4f-RV-IfS"/>
-                            <constraint firstItem="TvV-Od-oUp" firstAttribute="leading" secondItem="DSM-8I-RjL" secondAttribute="leadingMargin" constant="-16" id="N7f-Wq-4TY"/>
-                            <constraint firstItem="TvV-Od-oUp" firstAttribute="top" secondItem="DSM-8I-RjL" secondAttribute="topMargin" id="NQw-2h-aTu"/>
                             <constraint firstItem="TvV-Od-oUp" firstAttribute="top" secondItem="DSM-8I-RjL" secondAttribute="topMargin" id="O29-E2-GyN"/>
                             <constraint firstItem="7OG-0D-Mnm" firstAttribute="top" secondItem="Lox-f0-hOd" secondAttribute="bottom" constant="20" id="ZD4-yV-rKU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TvV-Od-oUp" secondAttribute="trailing" constant="-16" id="Zhb-gI-l1e"/>
                             <constraint firstItem="OJ9-55-2sB" firstAttribute="top" secondItem="6Ex-b2-Tff" secondAttribute="bottom" constant="-15" id="auN-My-BMi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TvV-Od-oUp" secondAttribute="trailing" constant="-16" id="e1E-Lu-alB"/>
                             <constraint firstAttribute="bottomMargin" secondItem="TvV-Od-oUp" secondAttribute="bottom" id="gEL-U9-4f1"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="TvV-Od-oUp" secondAttribute="bottom" constant="-6" id="grw-DF-GLm"/>
                             <constraint firstAttribute="centerX" secondItem="OJ9-55-2sB" secondAttribute="centerX" id="hME-si-CJz"/>
                             <constraint firstAttribute="centerX" secondItem="Lox-f0-hOd" secondAttribute="centerX" id="lrj-J0-i03"/>
                             <constraint firstAttribute="centerX" secondItem="b7Y-2E-aFF" secondAttribute="centerX" id="qgK-Mf-est"/>
@@ -132,15 +127,6 @@
                             <constraint firstAttribute="centerX" secondItem="6Ex-b2-Tff" secondAttribute="centerX" id="xUO-tJ-0LV"/>
                             <constraint firstItem="b7Y-2E-aFF" firstAttribute="top" secondItem="OJ9-55-2sB" secondAttribute="bottom" constant="-15" id="yO3-Jw-djq"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="1re-02-rvW"/>
-                                <exclude reference="N7f-Wq-4TY"/>
-                                <exclude reference="NQw-2h-aTu"/>
-                                <exclude reference="e1E-Lu-alB"/>
-                                <exclude reference="grw-DF-GLm"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -223,24 +209,14 @@
                             <constraint firstAttribute="centerX" secondItem="mns-cL-niW" secondAttribute="centerX" id="9wx-4E-bYY"/>
                             <constraint firstItem="mns-cL-niW" firstAttribute="top" secondItem="cwk-Og-S3W" secondAttribute="bottom" constant="21" id="Bja-4W-skE"/>
                             <constraint firstItem="t86-ir-gaf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="akr-Gt-aJd"/>
-                            <constraint firstAttribute="centerX" secondItem="mns-cL-niW" secondAttribute="centerX" id="bBO-ON-1yb"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="t86-ir-gaf" secondAttribute="bottom" id="cdO-T0-Wog"/>
                             <constraint firstAttribute="centerX" secondItem="GHL-SB-OLd" secondAttribute="centerX" id="dRE-eT-3IW"/>
                             <constraint firstAttribute="centerY" secondItem="mns-cL-niW" secondAttribute="centerY" id="diQ-yB-dxU"/>
-                            <constraint firstItem="mns-cL-niW" firstAttribute="top" secondItem="cwk-Og-S3W" secondAttribute="bottom" constant="20" id="iPX-sU-iai"/>
                             <constraint firstAttribute="centerX" secondItem="cwk-Og-S3W" secondAttribute="centerX" id="io8-H8-n9L"/>
                             <constraint firstItem="GHL-SB-OLd" firstAttribute="top" secondItem="mns-cL-niW" secondAttribute="bottom" constant="20" id="ktg-5C-luv"/>
-                            <constraint firstAttribute="centerY" secondItem="mns-cL-niW" secondAttribute="centerY" id="oOk-O1-cWc"/>
                             <constraint firstItem="t86-ir-gaf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="w3G-iN-q4F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t86-ir-gaf" secondAttribute="trailing" constant="-16" id="x3L-JX-RBd"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="bBO-ON-1yb"/>
-                                <exclude reference="iPX-sU-iai"/>
-                                <exclude reference="oOk-O1-cWc"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -1782,10 +1758,10 @@
         <image name="surfing" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZCD-wM-HKF"/>
-        <segue reference="L1h-ka-Iye"/>
-        <segue reference="dEI-fF-QpQ"/>
+        <segue reference="mbm-lt-RJE"/>
         <segue reference="Pab-Vi-Plr"/>
         <segue reference="qVC-2G-fei"/>
+        <segue reference="L1h-ka-Iye"/>
+        <segue reference="ZCD-wM-HKF"/>
     </inferredMetricsTieBreakers>
 </document>

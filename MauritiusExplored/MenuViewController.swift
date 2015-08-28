@@ -49,10 +49,7 @@ class MenuViewController: StaticDataTableViewController {
         
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        
-        return Int(UIInterfaceOrientation.Portrait.rawValue)
-    }
+
     // MARK: - Table view data source
 
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -118,33 +115,33 @@ class MenuViewController: StaticDataTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         previousSelectedCell.userInteractionEnabled = true
-        var selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+        let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         selectedIndex = indexPath
         
         if selectedCell?.tag == 11{
            
-            println("East")
+            print("East")
             defaults.setObject("East", forKey: "CurrentDirection")
             performSegueWithIdentifier("East", sender: self)
             selectedCell?.userInteractionEnabled = false
             
         }else if selectedCell?.tag == 12{
             
-            println("West")
+            print("West")
             defaults.setObject("West", forKey: "CurrentDirection")
             //performSegueWithIdentifier("West", sender: self)
             selectedCell?.userInteractionEnabled = false
             
         }else if selectedCell?.tag == 13{
            
-            println("North")
+            print("North")
             defaults.setObject("North", forKey: "CurrentDirection")
            performSegueWithIdentifier("North", sender: self)
             selectedCell?.userInteractionEnabled = false
             
         }else if selectedCell?.tag == 14{
             
-            println("South")
+            print("South")
             defaults.setObject("South", forKey: "CurrentDirection")
             performSegueWithIdentifier("South", sender: self)
             selectedCell?.userInteractionEnabled = false

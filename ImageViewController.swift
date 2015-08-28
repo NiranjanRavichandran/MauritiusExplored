@@ -242,9 +242,5 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        
-        return Int(UIInterfaceOrientationMask.All.rawValue)
-    }
 
 }
