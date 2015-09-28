@@ -50,8 +50,6 @@
 		42ECFA811B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA781B3B1EE4001728B2 /* DGActivityIndicatorTriplePulseAnimation.m */; };
 		42ECFA821B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA7A1B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m */; };
 		42ECFA831B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ECFA7C1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m */; };
-		42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */; };
-		42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1531B26DC6B0098500C /* NavigationViewController.m */; };
 		42F4A1561B288E170098500C /* PortLouisCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */; };
 		42F4A1581B29516C0098500C /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F4A1571B29516C0098500C /* CategoryDetails.swift */; };
 /* End PBXBuildFile section */
@@ -108,7 +106,7 @@
 		42CF12331B0E53A3000E99D8 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		42E970801B16E05C00C7EA54 /* ImageDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDetails.swift; path = ../ImageDetails.swift; sourceTree = "<group>"; };
 		42E970841B18CD9600C7EA54 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ../ImageViewController.swift; sourceTree = "<group>"; };
-		42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SCLAlertView.swift; path = ../SCLAlertView.swift; sourceTree = "<group>"; };
 		42ECFA6A1B3B1EA7001728B2 /* DGActivityIndicatorAnimationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorAnimationProtocol.h; sourceTree = "<group>"; };
 		42ECFA6B1B3B1EA7001728B2 /* DGActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorView.h; sourceTree = "<group>"; };
 		42ECFA6C1B3B1EA7001728B2 /* DGActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorView.m; sourceTree = "<group>"; };
@@ -126,10 +124,6 @@
 		42ECFA7A1B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorTwoDotsAnimation.m; sourceTree = "<group>"; };
 		42ECFA7B1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGActivityIndicatorThreeDotsAnimation.h; sourceTree = "<group>"; };
 		42ECFA7C1B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorThreeDotsAnimation.m; sourceTree = "<group>"; };
-		42F4A14D1B26D9590098500C /* UINavigationController+rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+rotation.h"; path = "MauritiusExplored/UINavigationController+rotation.h"; sourceTree = "<group>"; };
-		42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+rotation.m"; path = "MauritiusExplored/UINavigationController+rotation.m"; sourceTree = "<group>"; };
-		42F4A1521B26DC6B0098500C /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationViewController.h; path = MauritiusExplored/NavigationViewController.h; sourceTree = "<group>"; };
-		42F4A1531B26DC6B0098500C /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationViewController.m; path = MauritiusExplored/NavigationViewController.m; sourceTree = "<group>"; };
 		42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortLouisCollectionViewController.swift; sourceTree = "<group>"; };
 		42F4A1571B29516C0098500C /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,11 +174,6 @@
 		4297FF8E1AEB624B004DA040 = {
 			isa = PBXGroup;
 			children = (
-				42F4A1521B26DC6B0098500C /* NavigationViewController.h */,
-				42F4A1531B26DC6B0098500C /* NavigationViewController.m */,
-				42F4A14D1B26D9590098500C /* UINavigationController+rotation.h */,
-				42F4A14E1B26D9590098500C /* UINavigationController+rotation.m */,
-				42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */,
 				42ECFA6E1B3B1ECC001728B2 /* ActivityView */,
 				420D6D021AEFA4DA00E77720 /* SlideViewControllers */,
 				4297FFBE1AEB62A9004DA040 /* Frameworks */,
@@ -206,26 +195,9 @@
 		4297FF991AEB624C004DA040 /* MauritiusExplored */ = {
 			isa = PBXGroup;
 			children = (
-				4297FF9C1AEB624C004DA040 /* AppDelegate.swift */,
-				42CF12331B0E53A3000E99D8 /* TextField.swift */,
-				42E970801B16E05C00C7EA54 /* ImageDetails.swift */,
-				4205B1991AF640C6007B60CC /* PhotoViewCell.swift */,
-				42F4A1571B29516C0098500C /* CategoryDetails.swift */,
-				42BE0B8C1B09CFFD00BE7342 /* ActivityIndicator.swift */,
-				425112521B340C3A00637D21 /* BadConnectionView.swift */,
-				42A366D31B133AF300AD47DC /* CollectionViewHeader.swift */,
-				4297FFA01AEB624C004DA040 /* Main.storyboard */,
-				4297FF9E1AEB624C004DA040 /* ViewController.swift */,
-				423704651B37F62900BD0DED /* FavsViewController.swift */,
-				4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */,
-				42E970841B18CD9600C7EA54 /* ImageViewController.swift */,
-				4297ABE01AEBC0D20036C2F6 /* SignUpViewController.swift */,
-				4203A5721B21971F00293344 /* SettingsViewController.swift */,
-				42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */,
-				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
-				420D6D0B1AF0F63000E77720 /* PostViewController.swift */,
-				4297FFA51AEB624C004DA040 /* LaunchScreen.xib */,
-				42BE0B901B0BB3BA00BE7342 /* Images.xcassets */,
+				42FC7BEE1BB8E77100685C06 /* Model */,
+				42FC7BED1BB8E73F00685C06 /* Views */,
+				42FC7BEC1BB8E72900685C06 /* Controllers */,
 				4297FF9A1AEB624C004DA040 /* Supporting Files */,
 			);
 			path = MauritiusExplored;
@@ -234,6 +206,8 @@
 		4297FF9A1AEB624C004DA040 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				42BE0B901B0BB3BA00BE7342 /* Images.xcassets */,
+				4297FF9C1AEB624C004DA040 /* AppDelegate.swift */,
 				4297FF9B1AEB624C004DA040 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -308,6 +282,46 @@
 			name = Animation;
 			sourceTree = "<group>";
 		};
+		42FC7BEC1BB8E72900685C06 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4297FF9E1AEB624C004DA040 /* ViewController.swift */,
+				423704651B37F62900BD0DED /* FavsViewController.swift */,
+				4222AB7E1AF7B50000D5EA00 /* MenuViewController.swift */,
+				42E970841B18CD9600C7EA54 /* ImageViewController.swift */,
+				4297ABE01AEBC0D20036C2F6 /* SignUpViewController.swift */,
+				4203A5721B21971F00293344 /* SettingsViewController.swift */,
+				42F4A1551B288E170098500C /* PortLouisCollectionViewController.swift */,
+				4220FDD11B16456F00956EAD /* WestCollectionViewController.swift */,
+				420D6D0B1AF0F63000E77720 /* PostViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		42FC7BED1BB8E73F00685C06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4297FFA01AEB624C004DA040 /* Main.storyboard */,
+				4297FFA51AEB624C004DA040 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		42FC7BEE1BB8E77100685C06 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42ECFA661B3AB2D4001728B2 /* SCLAlertView.swift */,
+				42CF12331B0E53A3000E99D8 /* TextField.swift */,
+				42E970801B16E05C00C7EA54 /* ImageDetails.swift */,
+				4205B1991AF640C6007B60CC /* PhotoViewCell.swift */,
+				42F4A1571B29516C0098500C /* CategoryDetails.swift */,
+				42BE0B8C1B09CFFD00BE7342 /* ActivityIndicator.swift */,
+				425112521B340C3A00637D21 /* BadConnectionView.swift */,
+				42A366D31B133AF300AD47DC /* CollectionViewHeader.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,7 +367,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Adavers;
 				TargetAttributes = {
 					4297FF961AEB624B004DA040 = {
@@ -427,7 +441,6 @@
 				42F4A1581B29516C0098500C /* CategoryDetails.swift in Sources */,
 				420D6D0C1AF0F63000E77720 /* PostViewController.swift in Sources */,
 				4205B19A1AF640C6007B60CC /* PhotoViewCell.swift in Sources */,
-				42F4A1541B26DC6B0098500C /* NavigationViewController.m in Sources */,
 				42A366D01B120BE900AD47DC /* StaticDataTableViewController.m in Sources */,
 				42ECFA821B3B1EE4001728B2 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				4297ABE11AEBC0D20036C2F6 /* SignUpViewController.swift in Sources */,
@@ -436,7 +449,6 @@
 				42ECFA7F1B3B1EE4001728B2 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				42ECFA7E1B3B1EE4001728B2 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				420D6D011AEFA4CF00E77720 /* SWRevealViewController.m in Sources */,
-				42F4A14F1B26D9590098500C /* UINavigationController+rotation.m in Sources */,
 				42ECFA831B3B1EE4001728B2 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				42ECFA671B3AB2D4001728B2 /* SCLAlertView.swift in Sources */,
 				4203A5731B21971F00293344 /* SettingsViewController.swift in Sources */,
@@ -501,6 +513,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -515,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -551,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -574,6 +587,7 @@
 				INFOPLIST_FILE = MauritiusExplored/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adavers.Mauritius;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MauritiusExplored-Bridging-Header.h";
@@ -598,6 +612,7 @@
 				INFOPLIST_FILE = MauritiusExplored/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adavers.Mauritius;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MauritiusExplored-Bridging-Header.h";
@@ -619,6 +634,7 @@
 				);
 				INFOPLIST_FILE = MauritiusExploredTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adavers.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MauritiusExplored.app/MauritiusExplored";
 			};
@@ -634,6 +650,7 @@
 				);
 				INFOPLIST_FILE = MauritiusExploredTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adavers.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MauritiusExplored.app/MauritiusExplored";
 			};
